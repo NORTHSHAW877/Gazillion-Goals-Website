@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css"/>
+        <title>Upcoming Events</title>
+    </head>
+    <body>
+      <nav class="nav-tabs">
+      <a href="index.html">Home</a>
+      <a href="upcomingevents.html">Upcoming Events</a>
+      <a href="transfernews.html">Transfer News</a>
+      <a href="fitcheck.html">Fit Check</a>
+  </nav>
+
+  <button id="FIFAclubButton" onclick="showFIFAClubWorldCup()">FIFA Club World Cup</button>
+
+  <div id="FIFAclubWorldCupSection" style="display: none;">
+    <h2>FIFA Club World Cup</h2>
+    <p>The first FIFA Club World Championship took place in Brazil in 2000.</p>
+    <p>The first ever 32 team FIFA CLUB WORLD CUP will take place in the USA in 2025.</p>
+  </div>
+
+    <h3 class="countdown-title">Countdown to FIFA Club World Cup:</h3>
+    <p id="countdown"></p>
+
+  <div id="header">
+      <img src="images/club8.jpg" alt="FIFA Club World Cup" />
+ </div>
+
+       <script>
+           function showFIFAClubWorldCup() {
+              const section = document.getElementById("FIFAclubWorldCupSection");
+           
+              if (section.style.display === "none" || section.style.display === "") {
+                section.style.display = "block"; // Show it
+              } else {
+                section.style.display = "none";  // Hide it
+              }
+          }
+             // Countdown Timer
+             const countDownDate = new Date("June 14, 2025 00:00:00").getTime();
+
+            const x = setInterval(function () {
+              const now = new Date().getTime();
+              const distance = countDownDate - now;
+
+              const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+              const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+              const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+              const countdownDisplay = document.getElementById("countdown");
+              if (distance < 0) {
+                clearInterval(x);
+                countdownDisplay.innerHTML = "The Club World Cup has started!";
+              } else {
+                countdownDisplay.innerHTML =
+                  days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+             }
+        }, 1000);
+       </script>
+
+    </body>
+</html>

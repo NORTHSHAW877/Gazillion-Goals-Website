@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css"/>
+  <title>Transfer News</title>
+</head>
+<body>
+  <nav class="nav-tabs">
+    <a href="index.html">Home</a>
+    <a href="upcomingevents.html">Upcoming Events</a>
+    <a href="transfernews.html">Transfer News</a>
+    <a href="fitcheck.html">Fit Check</a>
+ </nav>
+
+ <button id="TransferNewsButton" onclick="toggleTransferNews()">Transfer News</button>
+
+ <div id="TransferNewsSection" style="display: block;">
+
+  <h2>LATEST TRANSFER NEWS</h2>
+
+  <!-- Story 1: Trent Alexander-Arnold -->
+  <div class="transfer-story">
+    <img src="images/trent1.jpg" alt="Trent Alexander-Arnold" class="player-photo" />
+    <div class="transfer-text">
+      <p><strong>Trent Alexander-Arnold</strong></p>
+      <p>The English right back has left Liverpool and joined Spanish giants Real Madrid.</p>
+      <p>He departs Anfield after 354 appearances and 23 goals for the club.</p>
+    </div>
+  </div>
+
+  <!-- Story 2: Florian Wirtz -->
+  <div class="transfer-story">
+    <img src="images/witz3.jpg" alt="Florian Wirtz" class="player-photo" />
+    <div class="transfer-text">
+      <p><strong>Florian Wirtz</strong></p>
+      <p>On 20 June 2025, Florian Wirtz joined Premier League club Liverpool.</p>
+      <p>It is rumored he signed a long-term contract for £100 million, becoming the most expensive transfer in the history of the Bundesliga (replacing Ousmane Dembélé as record holder).</p>
+    </div>
+  </div>
+</div>
+
+ <script>
+   function toggleTransferNews() {
+   const section = document.getElementById("TransferNewsSection");
+   section.style.display = section.style.display === "none" || section.style.display === "" ? "block" : "none";
+    }
+ </script>
+</body>
+</html>
+
+        
