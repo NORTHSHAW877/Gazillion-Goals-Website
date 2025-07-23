@@ -1,64 +1,58 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="style.css"/>
-        <title>Upcoming Events</title>
-    </head>
-    <body>
-      <nav class="nav-tabs">
-      <a href="index.html">Home</a>
-      <a href="upcomingevents.html">Upcoming Events</a>
-      <a href="transfernews.html">Transfer News</a>
-      <a href="fitcheck.html">Fit Check</a>
-  </nav>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upcoming Events</title>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="upcoming-page">
+  <div class="wrapper">
+    <!-- === NAVIGATION === -->
+    <div class="nav-tabs">
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="upcomingevents.html">Upcoming Events</a>
+        <a href="transfernews.html">Transfer News</a>
+        <a href="fitcheck.html">Fit Check</a>
+      </div>
 
-  <button id="FIFAclubButton" onclick="showFIFAClubWorldCup()">FIFA Club World Cup</button>
+      <div class="nav-branding">
+        <span class="site-name">Gazillion Goals</span>
+        <div class="search-area">
+          <i class="fa fa-search search-icon" onclick="toggleSearch()"></i>
+          <input type="text" id="searchInput" placeholder="Search..." />
+        </div>
+      </div>
+    </div>
 
-  <div id="FIFAclubWorldCupSection" style="display: none;">
-    <h2>FIFA Club World Cup</h2>
-    <p>The first FIFA Club World Championship took place in Brazil in 2000.</p>
-    <p>The first ever 32 team FIFA CLUB WORLD CUP will take place in the USA in 2025.</p>
-  </div>
+    <!-- === MAIN CONTENT === -->
+    <div class="main-content">
+      <div class="content-box">
+        <h1>COMING SOON</h1>
+        <p>Stay tuned for the latest footballing events!</p>
+      </div>
+    </div>
+  </div> <!-- CLOSE WRAPPER -->
 
-    <h3 class="countdown-title">Countdown to FIFA Club World Cup:</h3>
-    <p id="countdown"></p>
+ <!-- === SEARCH FUNCTION === -->
+  <script>
+    function toggleSearch() {
+      const input = document.getElementById('searchInput');
+      input.classList.toggle('show');
+      if (input.classList.contains('show')) {
+        input.focus();
+      }
+    }
+  </script>
 
-  <div id="header">
-      <img src="images/club8.jpg" alt="FIFA Club World Cup" />
- </div>
-
-       <script>
-           function showFIFAClubWorldCup() {
-              const section = document.getElementById("FIFAclubWorldCupSection");
-           
-              if (section.style.display === "none" || section.style.display === "") {
-                section.style.display = "block"; // Show it
-              } else {
-                section.style.display = "none";  // Hide it
-              }
-          }
-             // Countdown Timer
-             const countDownDate = new Date("June 14, 2025 00:00:00").getTime();
-
-            const x = setInterval(function () {
-              const now = new Date().getTime();
-              const distance = countDownDate - now;
-
-              const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-              const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-              const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-              const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-              const countdownDisplay = document.getElementById("countdown");
-              if (distance < 0) {
-                clearInterval(x);
-                countdownDisplay.innerHTML = "The Club World Cup has started!";
-              } else {
-                countdownDisplay.innerHTML =
-                  days + "d " + hours + "h " + minutes + "m " + seconds + "s";
-             }
-        }, 1000);
-       </script>
-
-    </body>
-</html>
+  <!-- === FOOTER === -->
+  <footer>
+    &copy; 2025 All rights reserved. Gazillion Goals.<br>
+    Site designed and maintained by P N Inc. | Follow <strong>Gazillion Goals</strong> on Tik Tok
+    <a href="https://www.tiktok.com/@gazilliongoals" target="_blank">
+      <i class="fab fa-tiktok tiktok-icon"></i>
+    </a>
+  </footer>
+</body>

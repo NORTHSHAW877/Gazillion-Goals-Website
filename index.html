@@ -1,61 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Gazillion Goals</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>GAZILLION GOALS</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 </head>
+<body>
 
-<style>
-  
-</style>
-</head>
+  <!-- === NAVIGATION BAR === -->
+  <div class="nav-tabs">
+    <!-- Left side: Navigation links -->
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="upcomingevents.html">Upcoming Events</a>
+      <a href="transfernews.html">Transfer News</a>
+      <a href="fitcheck.html">Fit Check</a>
+    </div>
 
-        <link rel="stylesheet" href="style.css"/>
-        <title>Gazillion Goals</title>
-    </head>
-    <body>
-            <nav class="nav-tabs">
-            <a href="index.html">Home</a>
-            <a href="upcomingevents.html">Upcoming Events</a>
-            <a href="transfernews.html">Transfer News</a>
-            <a href="fitcheck.html">Fit Check</a>
-  </nav>
-</body>
+    <!-- Right side: Branding + Search -->
+    <div class="nav-branding">
+      <span class="site-name">Gazillion Goals</span>
 
-        <div id="header">
-            <img src="images/logo1.jpg" alt="Gazillion Goals Logo" />
-        </div>
-
-         <!-- Main Content -->
-        <div class="overlay">
-          <div id="main">
-            <!-- Welcome Section -->
-            <section class="intro">
-               <h1>Welcome to Gazillion Goals</h1>
-               <p>Where goals meet stories.</p>
-           </section>
-
-       <!-- About Us Section -->
-          <section class="about">
-             <h2>About Us</h2>
-             <p>Gazillion Goals is a passion-driven platform for football fans around the world.</p>
-             <p>Our mission is to deliver top-quality news, event coverage, and exciting features.</p>
-         </section>
-
-    <!-- Contact Section -->
-        <section class="contact">
-           <h2>Contact</h2>
-           <p>Email: gazilliongoals@yahoo.com</p>
-           <p>tiktok: @gazilliongoals</p>
-       </section>
+      <div class="search-area">
+        <i class="fa fa-search search-icon" onclick="toggleSearch()"></i>
+        <input type="text" id="searchInput" placeholder="Search..." />
+      </div>
+    </div>
   </div>
-</div>
 
-    <footer>
-      <a href="https://www.tiktok.com/@gazilliongoals" target="_blank" class="tiktok-link">
-        Follow us on TikTok
-      </a>
-    </footer>
-  </body>
+  <!-- === MAIN CONTENT === -->
+  <div class="main-content">
+    <div class="content-box">
+      <h1>GAZILLION GOALS</h1>
+      <p>Where goals meet stories.</p>
+    </div>
+
+    <div class="content-box">
+      <h2>ABOUT US</h2>
+      <p>Gazillion Goals is a passion-driven platform for football fans around the world.</p>
+      <p>Our mission is to deliver top-quality news, event coverage, and exciting features.</p>
+    </div>
+
+    <div class="content-box">
+      <h3>CONTACT</h3>
+      <p>Email: gazilliongoals@yahoo.com</p>
+      <p>TikTok: @gazilliongoals</p>
+    </div>
+
+    <div class="image-row">
+      <div class="image-box">
+      <img src="images/SUNDOWNS.PNG" alt="Image 1">
+    </div>
+    <div class="image-box">
+      <img src="images/Saka.jpg" alt="Image 2">
+    </div>
+    <div class="image-box">
+      <img src="images/LAMINE.PNG" alt="Image 3">
+    </div>
+    <div class="image-box">
+      <img src="images/PSG.jpg" alt="Image 3">
+    </div>
+    <div class="image-box">
+      <img src="images/RAFA.jpg" alt="Image 3">
+    </div>
+    <div class="image-box">
+      <img src="images/LEVER.jpg" alt="Image 3">
+    </div>
+    <div class="image-box">
+      <img src="images/BENZEMA.jpg" alt="Image 3">
+    </div>
+  </div>
+ </div>
+
+  <!-- === SEARCH FUNCTION === -->
+  <script>
+    function toggleSearch() {
+      const input = document.getElementById('searchInput');
+      input.classList.toggle('show');
+      if (input.classList.contains('show')) {
+        input.focus();
+      }
+    }
+  </script>
+
+  <!-- === FOOTER === -->
+  <footer>
+    &copy; 2025 All rights reserved. Gazillion Goals.<br>
+    Site designed and maintained by P N Inc. | Follow <strong>Gazillion Goals</strong> on Tik Tok
+    <a href="https://www.tiktok.com/@gazilliongoals" target="_blank">
+      <i class="fab fa-tiktok tiktok-icon"></i>
+    </a>
+
+</body>
 </html>

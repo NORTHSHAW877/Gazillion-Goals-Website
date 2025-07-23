@@ -1,59 +1,240 @@
-<!DOCTYPE html> 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8" />
   <title>Fit Check</title>
+
+  <!-- Fonts & Icons -->
+   <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Internal Styles -->
+  <style>
+    body.fitcheck-page {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-image: url('images/goal3.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+    }
+
+    h2 {
+      text-align: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      color: darkgreen;
+    }
+
+    /* --- NAVIGATION --- */
+    .nav-tabs {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #004d00;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .nav-left a {
+      color: white;
+      margin-right: 30px;
+      text-decoration: none;
+      border-right: 1px solid white;
+      padding-right: 20px;
+    }
+
+    .nav-left a:last-child {
+      border-right: none;
+    }
+
+   .nav-branding {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .site-name {
+      font-family: 'Indie Flower', cursive;
+      font-size: 18px;
+      font-weight: 300;
+      color: white;
+    }
+
+    .search-icon {
+      font-size: 20px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .nav-tabs a:hover {
+      background-color: #90ee90;
+      color: black;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-tabs {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-left a {
+        margin-bottom: 10px;
+      }
+    }
+
+    /* --- FIT CHECK SECTION --- */
+    #FitCheckSection {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 12px;
+      background-color: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .player-box {
+      background-color: black;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 40px auto;
+    }
+
+    .main-photo {
+      width: 250px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .main-photo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .text-content h2, .text-content p {
+      margin: 5px 0;
+    }
+
+    .outfit-gallery {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .outfit-gallery img {
+      width: 180px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: lightgreen;
+      text-decoration: none;
+    }
+
+    .tiktok-icon {
+      margin-left: 8px;
+    }
+  </style>
 </head>
-<body>
+
+<body class="fitcheck-page">
 
   <!-- Navigation -->
   <nav class="nav-tabs">
-    <a href="index.html">Home</a>
-    <a href="upcomingevents.html">Upcoming Events</a>
-    <a href="transfernews.html">Transfer News</a>
-    <a href="fitcheck.html">Fit Check</a>
-  </nav>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="upcomingevents.html">Upcoming Events</a>
+      <a href="transfernews.html">Transfer News</a>
+      <a href="fitcheck.html">Fit Check</a>
+    </div>
 
-  <!-- Button -->
-  <button id="FitCheckButton" onclick="toggleFitCheck()">Fit Check</button>
-
-  <!-- Main Section -->
-  <div id="FitCheckSection" style="display: block; margin-top: 20px;">
+    <div class="nav-branding">
+      <span class="site-name">Gazillion Goals</span>
+      <div class="search-area">
+        <i class="fa fa-search search-icon" onclick="toggleSearch()"></i>
+        <input type="text" id="searchInput" placeholder="Search..." />
+      </div>
+    </div>
+  </div>
+ </nav>
+  
+  <!-- Main Content -->
+  <div id="FitCheckSection">
     <h2>LATEST PLAYER FITS</h2>
 
     <!-- Player 1 -->
-    <div class="transfer-story">
-      <img src="images/him1.jpg" alt="Khuliso Mudau" class="player-photo" />
-      <div class="transfer-text">
-        <p><strong>Khuliso Mudau</strong></p>
-        <p>Right back for Mamelodi Sundowns – Known for his fitted, sharp kit presence.</p>
+    <div class="player-box">
+      <img src="images/him1.jpg" alt="Khuliso Mudau action" class="main-photo">
+      <div class="text-content">
+        <h2>KHULISO MUDAU</h2>
+        <p>Right back for Mamelodi Sundowns: Formal wear is on another level</p>
         <p>Style: Fitting to the body</p>
-        <img src="images/him2.jpg" alt="More of Khuliso" class="player-photo" />
+      </div>
+      <div class="outfit-gallery">
+        <img src="images/kk1.PNG" alt="Look 1">
+        <img src="images/kk2.PNG" alt="Look 2">
+        <img src="images/kk3.PNG" alt="Look 3">
       </div>
     </div>
 
     <!-- Player 2 -->
-    <div class="transfer-story">
-      <img src="images/mike2.jpg" alt="Mike Maignan" class="player-photo" />
-      <div class="transfer-text">
-        <p><strong>Mike Maignan</strong></p>
-        <p>Goalkeeper for AC Milan – Makes iconic fashion statements on and off the pitch.</p>
-        <p>Style: Iconic</p>
-        <img src="images/mike1.jpg" alt="Mike Maignan Alt" class="player-photo" />
+    <div class="player-box">
+      <img src="images/mike2.jpg" alt="Mike Maignan action" class="main-photo">
+      <div class="text-content">
+        <h2>MIKE MAIGNAN</h2>
+        <p>Goalkeeper for AC Milan: Makes iconic fashion statements on and off the pitch</p>
+        <p>Style: 90's Hip Hop with modern hues/Track Suits</p>
+      </div>
+      <div class="outfit-gallery">
+        <img src="images/mm3.PNG" alt="Look 1">
+        <img src="images/MM4.PNG" alt="Look 2">
+        <img src="images/mmm2.PNG" alt="Look 3">
       </div>
     </div>
-
   </div>
 
-  <!-- Script -->
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 All rights reserved. Gazillion Goals.<br>
+    Site designed and maintained by P N Inc. | Follow <strong>Gazillion Goals</strong> on TikTok
+    <a href="https://www.tiktok.com/@gazilliongoals" target="_blank">
+      <i class="fab fa-tiktok tiktok-icon"></i>
+    </a>
+  </footer>
+
   <script>
-    function toggleFitCheck() {
-      const section = document.getElementById("FitCheckSection");
-      section.style.display = section.style.display === "none" || section.style.display === "" ? "block" : "none";
-    }
-  </script>
+  function toggleSearch() {
+    const searchInput = document.getElementById("searchInput");
+    searchInput.classList.toggle("show");
+  }
+ </script>
 
 </body>
 </html>
-

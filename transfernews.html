@@ -1,86 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
   <title>Transfer News</title>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <nav class="nav-tabs">
-    <a href="index.html">Home</a>
-    <a href="upcomingevents.html">Upcoming Events</a>
-    <a href="transfernews.html">Transfer News</a>
-    <a href="fitcheck.html">Fit Check</a>
- </nav>
+<body class="transfer-news-page">
 
- <button id="TransferNewsButton" onclick="toggleTransferNews()">Transfer News</button>
+  <!-- === NAVIGATION === -->
+  <div class="nav-tabs">
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="upcomingevents.html">Upcoming Events</a>
+      <a href="transfernews.html">Transfer News</a>
+      <a href="fitcheck.html">Fit Check</a>
+    </div>
 
- <div id="TransferNewsSection" style="display: block;">
-
-  <h2>LATEST TRANSFER NEWS</h2>
-
-  <!-- Story 1: Trent Alexander-Arnold -->
-  <div class="transfer-story">
-    <img src="images/trent1.jpg" alt="Trent Alexander-Arnold" class="player-photo" />
-    <div class="transfer-text">
-      <p><strong>Trent Alexander-Arnold</strong></p>
-      <p>The English right back has left Liverpool and joined Spanish giants Real Madrid.</p>
-      <p>He departs Anfield after 354 appearances and 23 goals for the club.</p>
+    <div class="nav-branding">
+      <span class="site-name">Gazillion Goals</span>
+      <div class="search-area">
+        <i class="fa fa-search search-icon" onclick="toggleSearch()"></i>
+        <input type="text" id="searchInput" placeholder="Search..." />
+      </div>
     </div>
   </div>
 
-  <!-- Story 2: Florian Wirtz -->
-  <div class="transfer-story">
-    <img src="images/witz3.jpg" alt="Florian Wirtz" class="player-photo" />
-    <div class="transfer-text">
-      <p><strong>Florian Wirtz</strong></p>
-      <p>On 20 June 2025, Florian Wirtz joined Premier League club Liverpool.</p>
-      <p>It is rumored he signed a long-term contract for £100 million, becoming the most expensive transfer in the history of the Bundesliga (replacing Ousmane Dembélé as record holder).</p>
-    </div>
-  </div>
-</div>
+  <!-- === PAGE HEADING === -->
+  <h1 class="section-heading">TRANSFER NEWS 25/26 SEASON</h1>
 
-  <!-- Story 3: Tijjani Reijnders -->
-  <div class="transfer-story">
-    <img src="images/ren1.jpg" alt="Tijjani Reijnders" class="player-photo" />
-    <div class="transfer-text">
-      <p><strong>Tijjani Reijnders</strong></p>
-      <p>On 11 June 2025, Premier League club Manchester City announced the signing of Reijnders on a five-year deal reportedly worth £46.5m.</p>
-      <p>The 26-year-old midfielder joined from AC Milan, where he made 104 appearances and scored 19 goals in two seasons.</p>
+  <!-- === TRANSFER STORIES WRAPPER === -->
+  <div class="transfer-container">
+    
+    <!-- Story 1 -->
+    <div class="transfer-story">
+      <img src="images/trent1.jpg" alt="Trent Alexander-Arnold" class="player-photo">
+      <div class="transfer-text">
+        <h3>Trent Alexander-Arnold</h3>
+        <p>The English right back has left Liverpool and joined Spanish giants Real Madrid.</p>
+        <p>He departs Anfield after 354 appearances and 23 goals for the club.</p>
+      </div>
     </div>
-  </div>
-</div>
 
-  <!-- Story 4: Jobe Bellingham -->
-  <div class="transfer-story">
-    <img src="images/jobe1.jpg" alt="Jobe Bellingham" class="player-photo" />
-    <div class="transfer-text">
-      <p><strong>Jobe Bellingham</strong></p>
-      <p>Jobe Bellingham joined Borussia Dortmund from Sunderland on a five-year contract until June 2030.</p>
-      <p>Sunderland say the fee is a club record, believed to be 32m euros (£26.96m) plus 5m euros (£4.2m) in add-ons.</p>
-      <p>The 19-year-old midfielder has played for the Black Cats since 2023, making 90 appearances, and helped them secure promotion to the Premier League last season.</p>
+    <!-- Story 2 -->
+    <div class="transfer-story">
+      <img src="images/witz3.jpg" alt="Florian Wirtz" class="player-photo">
+      <div class="transfer-text">
+        <h3>Florian Wirtz</h3>
+        <p>Wirtz joins Liverpool for a record £100 million, the most expensive Bundesliga transfer ever.</p>
+      </div>
     </div>
-  </div>
-</div> 
 
-    <!-- Story 5: Paul Pogba -->
-  <div class="transfer-story">
-    <img src="images/pog.jpg" alt="Paul Pogba" class="player-photo" />
-    <div class="transfer-text">
-      <p><strong>Paul Pogba</strong></p>
-      <p>AS Monaco has officially announced the signing of Paul Pogba until 2027.</p>
-      <p>The Former Juventus and Manchester United player spent the last few months as a free agent following an 18 month doping ban.</p>
-      <p>The 32 year old midfielder is determined to relaunch his career with the 2026 World Cup already in sight.</p>
+    <!-- Story 3 -->
+    <div class="transfer-story">
+      <img src="images/tija.PNG" alt="Tijjani Reijnders" class="player-photo">
+      <div class="transfer-text">
+        <h3>Tijjani Reijnders</h3>
+        <p>Manchester City signs Reijnders on a £46.5m five-year deal from AC Milan.</p>
+        <p>He scored 19 goals in two seasons.</p>
+      </div>
+    </div>
+
+    <!-- Story 4 -->
+    <div class="transfer-story">
+      <img src="images/jobe2.PNG" alt="Jobe Bellingham" class="player-photo">
+      <div class="transfer-text">
+        <h3>Jobe Bellingham</h3>
+        <p>Joins Borussia Dortmund for a record Sunderland fee. 90 appearances helped gain promotion.</p>
+      </div>
+    </div>
+
+    <!-- Story 5 -->
+    <div class="transfer-story">
+      <img src="images/pog.jpg" alt="Paul Pogba" class="player-photo">
+      <div class="transfer-text">
+        <h3>Paul Pogba</h3>
+        <p>Pogba signs with AS Monaco until 2027 after an 18-month doping ban.</p>
+        <p>The 32-year-old is looking to revive his career ahead of the 2026 World Cup.</p>
+      </div>
+    </div>
+
+     <!-- Story 5 -->
+    <div class="transfer-story">
+      <img src="images/noni.jpg" alt="Noni Madueke" class="player-photo">
+      <div class="transfer-text">
+        <h3>Noni Madueke</h3>
+        <p>The 23 year old winger joined the Gunners for 52 million pounds from Chelsea</p>
+        <p>Madueke scored 11 goals, and provided five assists for Chelsea last season, and broke into Thomas Tuchel’s England squad. </p>
+      </div>
     </div>
   </div>
-</div> 
-  
- <script>
-   function toggleTransferNews() {
-   const section = document.getElementById("TransferNewsSection");
-   section.style.display = section.style.display === "none" || section.style.display === "" ? "block" : "none";
+
+  <!-- === SEARCH FUNCTION === -->
+  <script>
+    function toggleSearch() {
+      const input = document.getElementById('searchInput');
+      input.classList.toggle('show');
+      if (input.classList.contains('show')) {
+        input.focus();
+      }
     }
- </script>
+  </script>
+
+  <!-- === FOOTER === -->
+  <footer>
+    &copy; 2025 All rights reserved. Gazillion Goals.<br>
+    Site designed and maintained by P N Inc. | Follow <strong>Gazillion Goals</strong> on Tik Tok
+    <a href="https://www.tiktok.com/@gazilliongoals" target="_blank">
+      <i class="fab fa-tiktok tiktok-icon"></i>
+    </a>
+  </footer>
+
 </body>
 </html>
-
-        
