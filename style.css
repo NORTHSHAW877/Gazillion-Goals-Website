@@ -7,7 +7,10 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   color: white;
 }
 
@@ -247,7 +250,7 @@ footer a:hover {
 .transfer-text h3 {
   margin-top: 0;
   font-size: 22px;
-  color: black
+  color: rgb(247, 244, 244);
   font-family: 'Segoe UI', sans-serif;
 }
 
@@ -259,6 +262,13 @@ footer a:hover {
   margin-right: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+}
+
+.transfer-date {
+  font-size: 14px;
+  color: #ccc;
+  font-style: italic;
+  margin-left: 6px;
 }
 
 /* === Transfer News Player Image Hover Effect === */
@@ -285,19 +295,20 @@ html, body.transfer-news-page {
 }
 
 body.transfer-news-page {
-  background-image: url('images/goal3.jpg'); /* Adjust path if needed */
+  background-image: url('images/goal3.jpg'); /* Make sure this path is correct */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;  /* 👈 This is the key to making the background stick */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 .transfer-container {
-  flex: 1;
+  flex: 1; /* allows it to stretch and fill space */
   padding: 30px;
-  background-color: rgba(0, 0, 0, 0.3); /* optional for contrast */
+  background-color: rgba(0, 0, 0, 0.3); /* Optional translucent layer */
 }
 
 /* --- UPCOMING EVENTS PAGE --- */
