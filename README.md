@@ -1,47 +1,73 @@
-🌟 Overview
-Gazillion Goals is a dynamic football-themed website that merges the world of the beautiful game with lifestyle, culture, and breaking news. From what your favorite players are wearing to the latest transfer buzz and exciting upcoming events
+# Gazillion Goals ⚽
 
-📁 Project Structure
- index.html              # Landing/Home page  
- fitcheck.html           # Footballers' fashion & personal style highlights  
- transfernews.html       # Latest football transfer updates and rumors  
- upcomingevents.html     # Matches, tournaments, and fan events  
- style.css               # Styling for the entire website  
- script.js               # JavaScript for interactivity  
- images/                 # Folder containing all image assets  
- 
-🚀 Features
-Sleek, responsive layout for desktop and mobile.
-Modular pages for easy expansion and content management.
-User-friendly and beginner-coded in HTML, CSS, and JavaScript.
-
-## 🆕 Recent Updates (July 2025)
-
-✅ **Transfer News Page:**
-- Added several new player stories with styled dates and player images.
-- Fixed layout and shadow inconsistencies across all `.transfer-story` containers.
-- Ensured all stories sit on a full background image (no white strip at bottom).
-
-✅ **FitCheck Page:**
-- Shadow box styling fixed for consistency across new and old posts.
-- Layouts cleaned up for responsiveness and visual balance.
-
-✅ **Styling Enhancements:**
-- Background image now fully covers the screen (no cut-off).
-- Fixed layout bugs with `flex-direction` in the body.
-- Added right-hand video section in Transfer page with vertically stacked local videos.
+**Gazillion Goals** is a sleek, football-themed website designed to showcase the latest in transfer news, player fashion ("FitCheck"), and upcoming football events — with a fast, functional search experience and a mobile-friendly design.
 
 ---
 
-## 💻 Technologies Used
+## ✅ Recent Project Updates
 
-- HTML5
-- CSS3 (Flexbox, transitions, shadows)
-- JavaScript (DOM manipulation, search logic, countdowns)
-- Git & GitHub (Version control)
+### 🖼 Image Optimization & Cleanup
+- Deleted all unused images from the `images/` folder.
+- Optimized existing `.jpg` and `.png` files for performance.
+- Added new `.webp` images for faster load times and better quality.
+
+### 🔍 Functional Search Bar
+- Search feature now fully functional.
+- Dynamic result display with type indicators, titles, and brief summaries.
+- Smooth scrolling and hover effects for better interactivity.
+
+### 🎨 Styling Enhancements
+- Background image now fully covers the screen without cutoff.
+- Fixed `flex-direction` and layout bugs across pages.
+- Global shadow and spacing consistency improved.
 
 ---
-👤 Author
-Pumla Nofemele
-Designer & Developer of Gazillion Goals
 
+## 📄 Page-Specific Updates
+
+### ✅ **Transfer News Page**
+- Added multiple new player transfer stories with dates and images.
+- Fixed layout and shadow inconsistencies on `.transfer-story` containers.
+- Ensured all stories display cleanly on a full background image (removed bottom white strip).
+
+### ✅ **FitCheck Page**
+- Standardized shadow box styling across all FitCheck posts.
+- Cleaned up layout for balance, alignment, and mobile responsiveness.
+
+### ✅ **Responsive Design**
+- All pages now **mobile-friendly** and adapt well to tablets and desktops.
+- Improved spacing, font scaling, and layout behavior on small screens.
+
+---
+
+## 🧠 Technologies Used
+
+- **HTML5**
+- **CSS3** (Flexbox, transitions, shadows)
+- **JavaScript** (DOM manipulation, search logic, countdowns)
+- **Git & GitHub** (Version control)
+
+---
+
+## 📂 File Structure Highlights
+
+- `index.html` – Homepage
+- `upcoming.html` – Upcoming Events
+- `transfers.html` – Transfer News
+- `fitcheck.html` – FitCheck Gallery
+- `style.css` – *Now empty (CSS moved inline)*
+- `script.js` – *Now empty (JavaScript moved inline)*
+
+---
+
+## 👤 Author
+
+**Pumla Nofemele**  
+Designer & Developer of Gazillion Goals  
+Crafted with a passion for football, digital creativity, and seamless user experience.
+
+---
+
+## 📝 License
+
+This project is open-source. Contributions, forks, and enhancements are welcome!
