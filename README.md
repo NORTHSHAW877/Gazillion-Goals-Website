@@ -1,5 +1,7 @@
 # Gazillion Goals ⚽
 
+<img width="102" height="20" alt="image" src="https://github.com/user-attachments/assets/986407b9-8772-41e4-829e-b667db55c220" />
+
 **Gazillion Goals** is a sleek, football-themed website designed to showcase the latest in transfer news, player fashion ("FitCheck"), and upcoming football events — with a fast, functional search experience and a mobile-friendly design.
 
 ---
