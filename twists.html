@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fit Check - GAZILLION GOALS</title>
+  <title>Full Time Twists - GAZILLION GOALS</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;700;900&family=Teko:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -189,18 +189,18 @@
     .hero-section {
       position: relative;
       z-index: 2;
-      min-height: 40vh;
+      min-height: 50vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 120px 20px 40px;
+      padding: 120px 20px 60px;
       text-align: center;
     }
 
     .hero-title {
       font-family: 'Bebas Neue', cursive;
-      font-size: 7rem;
+      font-size: 8rem;
       font-weight: 900;
       margin-bottom: 20px;
       background: linear-gradient(45deg, #4ade80, #fff, #22c55e, #86efac, #4ade80);
@@ -208,7 +208,8 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: moveBackground 3s ease infinite, glitchTitle 5s ease-in-out infinite;
-      letter-spacing: 12px;
+      text-shadow: 0 0 80px rgba(74, 222, 128, 0.8);
+      letter-spacing: 15px;
       filter: drop-shadow(0 10px 40px rgba(74, 222, 128, 0.6));
     }
 
@@ -220,17 +221,38 @@
     }
 
     .hero-subtitle {
-      font-family: 'Teko', sans-serif;
-      font-size: 2rem;
+      font-size: 2.2rem;
+      margin-bottom: 30px;
       color: #4ade80;
-      letter-spacing: 4px;
+      font-family: 'Teko', sans-serif;
+      font-weight: 700;
+      letter-spacing: 6px;
       text-transform: uppercase;
       animation: pulseGlow 2s ease-in-out infinite;
+      text-shadow: 0 0 30px rgba(74, 222, 128, 0.8), 0 0 60px rgba(74, 222, 128, 0.4);
     }
 
     @keyframes pulseGlow {
-      0%, 100% { text-shadow: 0 0 30px rgba(74, 222, 128, 0.8); }
-      50% { text-shadow: 0 0 50px rgba(74, 222, 128, 1); }
+      0%, 100% { text-shadow: 0 0 30px rgba(74, 222, 128, 0.8), 0 0 60px rgba(74, 222, 128, 0.4); }
+      50% { text-shadow: 0 0 50px rgba(74, 222, 128, 1), 0 0 100px rgba(74, 222, 128, 0.6); }
+    }
+
+    .season-badge {
+      display: inline-block;
+      padding: 15px 40px;
+      background: linear-gradient(135deg, rgba(74, 222, 128, 0.3), rgba(34, 197, 94, 0.3));
+      border: 3px solid #4ade80;
+      clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+      font-family: 'Bebas Neue', cursive;
+      font-size: 2rem;
+      letter-spacing: 4px;
+      margin-bottom: 40px;
+      animation: badgePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes badgePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
     }
 
     .content-wrapper {
@@ -238,21 +260,31 @@
       z-index: 2;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 40px 20px 100px;
+      padding: 60px 20px 100px;
     }
 
-    .player-box {
+    .main-box {
       background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(15, 50, 15, 0.9));
-      padding: 50px 40px;
-      margin-bottom: 60px;
+      padding: 80px 60px;
       border: 4px solid #4ade80;
       position: relative;
       overflow: hidden;
       clip-path: polygon(0 0, 100% 0, 100% calc(100% - 50px), calc(100% - 50px) 100%, 0 100%);
-      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      animation: pulseBox 3s ease-in-out infinite;
     }
 
-    .player-box::before {
+    @keyframes pulseBox {
+      0%, 100% {
+        box-shadow: 0 20px 60px rgba(74, 222, 128, 0.4),
+                    0 0 80px rgba(74, 222, 128, 0.3);
+      }
+      50% {
+        box-shadow: 0 30px 80px rgba(74, 222, 128, 0.6),
+                    0 0 120px rgba(74, 222, 128, 0.5);
+      }
+    }
+
+    .main-box::before {
       content: '';
       position: absolute;
       top: -50%;
@@ -269,13 +301,13 @@
       to { transform: rotate(360deg); }
     }
 
-    .player-box::after {
-      content: '👔';
+    .main-box::after {
+      content: '⚽';
       position: absolute;
-      font-size: 300px;
+      font-size: 400px;
       opacity: 0.03;
-      right: -60px;
-      bottom: -80px;
+      right: -80px;
+      bottom: -100px;
       animation: rotateSlow 20s linear infinite;
     }
 
@@ -284,61 +316,104 @@
       to { transform: rotate(360deg); }
     }
 
-    .player-box:hover {
-      transform: translateY(-15px) scale(1.02);
-      box-shadow: 0 30px 80px rgba(74, 222, 128, 0.6),
-                  0 0 100px rgba(74, 222, 128, 0.4);
-      border-color: #22c55e;
-    }
-
-    .player-box h2 {
+    .box-title {
       font-family: 'Bebas Neue', cursive;
-      font-size: 3.5rem;
+      font-size: 4rem;
+      margin-bottom: 40px;
       color: #4ade80;
-      margin-bottom: 15px;
-      letter-spacing: 6px;
-      text-shadow: 0 0 30px rgba(74, 222, 128, 0.8);
+      letter-spacing: 8px;
+      text-shadow: 0 0 40px rgba(74, 222, 128, 0.8);
       position: relative;
       z-index: 1;
+      text-align: center;
       animation: flicker 3s ease-in-out infinite;
     }
 
     @keyframes flicker {
-      0%, 100% { opacity: 1; text-shadow: 0 0 30px rgba(74, 222, 128, 0.8); }
-      50% { opacity: 0.95; text-shadow: 0 0 50px rgba(74, 222, 128, 1); }
+      0%, 100% { opacity: 1; text-shadow: 0 0 40px rgba(74, 222, 128, 0.8); }
+      50% { opacity: 0.95; text-shadow: 0 0 60px rgba(74, 222, 128, 1); }
     }
 
-    .player-box h2::before {
+    .box-title::before {
       content: '//';
       position: absolute;
-      left: -50px;
+      left: -70px;
       color: #22c55e;
       opacity: 0.6;
     }
 
-    .text-content {
+    .intro-text {
+      font-size: 1.5rem;
+      line-height: 2.2;
+      color: #e8f5e9;
+      margin-bottom: 50px;
       position: relative;
       z-index: 1;
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      font-weight: 400;
+    }
+
+    .content-divider {
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #4ade80, transparent);
+      margin: 50px 0;
+      box-shadow: 0 0 20px rgba(74, 222, 128, 0.6);
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-section {
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
       margin-bottom: 30px;
     }
 
-    .text-content p {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.2rem;
-      line-height: 1.9;
+    .feature-icon {
+      font-size: 70px;
+      filter: drop-shadow(0 0 25px #4ade80);
+      animation: iconFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes iconFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(5deg); }
+    }
+
+    .feature-title {
+      font-family: 'Teko', sans-serif;
+      font-size: 3rem;
+      color: #86efac;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-shadow: 0 0 30px rgba(74, 222, 128, 0.6);
+    }
+
+    .feature-description {
+      font-size: 1.4rem;
+      line-height: 2;
       color: #e8f5e9;
-      margin-bottom: 15px;
-      padding-left: 30px;
+      margin-bottom: 20px;
+      font-family: 'Orbitron', sans-serif;
+      padding-left: 35px;
       position: relative;
     }
 
-    .text-content p::before {
+    .feature-description::before {
       content: '>';
       position: absolute;
       left: 0;
       color: #4ade80;
       font-weight: bold;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       animation: blink 1.5s ease-in-out infinite;
     }
 
@@ -347,58 +422,46 @@
       25%, 75% { opacity: 0; }
     }
 
-    .text-content p strong {
+    .cta-section {
+      text-align: center;
+      margin-top: 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 3.5rem;
       color: #4ade80;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      margin-bottom: 30px;
+      letter-spacing: 6px;
+      text-shadow: 0 0 40px rgba(74, 222, 128, 0.8);
     }
 
-   .main-photo {
-      width: 100%;
-      max-width: 500px;
-      height: auto;
-      object-fit: contain;
-      border: 4px solid #4ade80;
-      clip-path: polygon(8% 0, 100% 0, 100% 92%, 92% 100%, 0 100%, 0 8%);
-      margin: 30px auto;
-      display: block;
-      position: relative;
-      z-index: 1;
-      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      box-shadow: 0 15px 50px rgba(74, 222, 128, 0.4);
+    .tiktok-button {
+      display: inline-block;
+      padding: 20px 60px;
+      background: linear-gradient(90deg, #4ade80, #22c55e);
+      border: 3px solid #4ade80;
+      color: #000;
+      text-decoration: none;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 2rem;
+      letter-spacing: 3px;
+      clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 40px rgba(74, 222, 128, 0.5);
     }
 
-    .main-photo:hover {
-      transform: scale(1.05) rotate(2deg);
-      box-shadow: 0 25px 70px rgba(74, 222, 128, 0.6);
-      border-color: #22c55e;
+    .tiktok-button:hover {
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 20px 60px rgba(74, 222, 128, 0.7);
+      background: linear-gradient(90deg, #22c55e, #4ade80);
     }
 
-    .outfit-gallery {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 30px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .outfit-gallery img {
-      width: 280px;
-      height: auto;
-      object-fit: contain;
-      border: 4px solid #4ade80;
-      clip-path: polygon(8% 0, 100% 0, 100% 92%, 92% 100%, 0 100%, 0 8%);
-      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      cursor: pointer;
-      box-shadow: 0 10px 40px rgba(74, 222, 128, 0.3);
-    }
-
-    .outfit-gallery img:hover {
-      transform: scale(1.08) rotate(3deg);
-      box-shadow: 0 20px 60px rgba(74, 222, 128, 0.6);
-      border-color: #22c55e;
+    .tiktok-button i {
+      margin-right: 15px;
+      font-size: 2.2rem;
     }
 
     footer {
@@ -470,36 +533,61 @@
 
       .hero-subtitle {
         font-size: 1.5rem;
-        letter-spacing: 2px;
-      }
-
-      .player-box {
-        padding: 40px 25px;
-        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 35px), calc(100% - 35px) 100%, 0 100%);
-      }
-
-      .player-box h2 {
-        font-size: 2.5rem;
         letter-spacing: 3px;
       }
 
-      .player-box h2::before {
-        left: -35px;
+      .season-badge {
+        font-size: 1.5rem;
+        padding: 12px 30px;
       }
 
-      .text-content p {
-        font-size: 1.1rem;
+      .main-box {
+        padding: 50px 30px;
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 35px), calc(100% - 35px) 100%, 0 100%);
+      }
+
+      .box-title {
+        font-size: 3rem;
+        letter-spacing: 4px;
+      }
+
+      .box-title::before {
+        left: -50px;
+      }
+
+      .intro-text {
+        font-size: 1.2rem;
+      }
+
+      .feature-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .feature-icon {
+        font-size: 60px;
+      }
+
+      .feature-title {
+        font-size: 2.2rem;
+      }
+
+      .feature-description {
+        font-size: 1.2rem;
         padding-left: 25px;
       }
 
-      .main-photo {
-        max-width: 100%;
-        height: auto;
+      .feature-description::before {
+        left: 0;
       }
 
-      .outfit-gallery img {
-        width: 220px;
-        height: 280px;
+      .cta-title {
+        font-size: 2.5rem;
+      }
+
+      .tiktok-button {
+        font-size: 1.5rem;
+        padding: 15px 40px;
       }
     }
 
@@ -532,54 +620,52 @@
   </div>
 
   <div class="hero-section">
-    <h1 class="hero-title">FIT CHECK</h1>
-    <p class="hero-subtitle">LATEST PLAYER FITS</p>
+    <h1 class="hero-title">FULL TIME TWISTS</h1>
+    <p class="hero-subtitle">⚡ YOUR VOICE. OUR ANSWERS ⚡</p>
+    <div class="season-badge">SEASON 2 - LIVE NOW</div>
   </div>
 
   <div class="content-wrapper">
+    <div class="main-box">
+      <h2 class="box-title">WHAT IS FULL TIME TWISTS?</h2>
+      
+      <p class="intro-text">
+        Full Time Twists is YOUR interactive football talk show on TikTok where fans submit their problems and the Gazillion Goals crew delivers real answers
+      </p>
 
-    <!-- Player 1: Khuliso Mudau -->
-    <div class="player-box">
-      <h2>KHULISO MUDAU</h2>
-      <div class="text-content">
-        <p>Right back for Mamelodi Sundowns: Formal wear is on another level</p>
-        <p><strong>Style:</strong> Fitting to the body</p>
+      <div class="content-divider"></div>
+
+      <div class="feature-section">
+        <div class="feature-header">
+          <div class="feature-icon">🔥</div>
+          <h3 class="feature-title">HOT TAKES</h3>
+        </div>
+        <p class="feature-description">Debate controversial football moments</p>
+        <p class="feature-description">Comment on wild match results</p>
+        <p class="feature-description">Share your unpopular football opinions</p>
+        <p class="feature-description">Challenge the status quo with bold statements</p>
       </div>
-      <img src="images/him1.jpg" alt="Khuliso Mudau" class="main-photo">
-      <div class="outfit-gallery">
-        <img src="images/kk2.PNG" alt="Khuliso Look 1">
-        <img src="images/kk3.PNG" alt="Khuliso Look 2">
+
+      <div class="content-divider"></div>
+
+      <div class="feature-section">
+        <div class="feature-header">
+          <div class="feature-icon">🎯</div>
+          <h3 class="feature-title">EXPERT ANSWERS</h3>
+        </div>
+        <p class="feature-description">Get genuine advice from a passionate football panel </p>
+        <p class="feature-description">Real talk from people who understand the game</p>
+        <p class="feature-description">No BS, just honest football conversations</p>
+        <p class="feature-description">Join a community that actually listens</p>
+      </div>
+
+      <div class="cta-section">
+        <h3 class="cta-title">JOIN THE CONVERSATION</h3>
+        <a href="https://www.tiktok.com/@gazilliongoals" target="_blank" class="tiktok-button">
+          <i class="fab fa-tiktok"></i> WATCH ON TIKTOK
+        </a>
       </div>
     </div>
-
-    <!-- Player 2: Mike Maignan -->
-    <div class="player-box">
-      <h2>MIKE MAIGNAN</h2>
-      <div class="text-content">
-        <p>Goalkeeper for AC Milan: Makes iconic fashion statements on and off the pitch</p>
-        <p><strong>Style:</strong> 90's Hip Hop with modern hues/Track Suits</p>
-      </div>
-      <img src="images/newmike.jpg" alt="Mike Maignan" class="main-photo">
-      <div class="outfit-gallery">
-        <img src="images/MM4.PNG" alt="Mike Look 1">
-        <img src="images/mmm2.PNG" alt="Mike Look 2">
-      </div>
-    </div>
-
-    <!-- Player 3: Sergio Ramos -->
-    <div class="player-box">
-      <h2>SERGIO RAMOS</h2>
-      <div class="text-content">
-        <p>Centre Back for CF Monterrey: Keeps it trendy with a personal twist. Cares about details from hair to fits to tats.</p>
-        <p><strong>Style:</strong> Trendsetter, personalizes trends</p>
-      </div>
-      <img src="images/ramosmainfinal.jpg" alt="Sergio Ramos" class="main-photo">
-      <div class="outfit-gallery">
-        <img src="images/ramos2.jpg" alt="Ramos Look 1">
-        <img src="images/ramos3.jpg" alt="Ramos Look 2">
-      </div>
-    </div>
-
   </div>
 
   <footer>
