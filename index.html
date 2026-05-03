@@ -1,1129 +1,526 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- PRIMARY META TAGS -->
-  <title>Gazillion Goals - Where Goals Meet Stories | Football News & Analysis</title>
-  <meta name="title" content="Gazillion Goals - Where Goals Meet Stories | Football News & Analysis">
-  <meta name="description" content="Your ultimate source for football news, Premier League updates, transfer news, UEFA coverage, Bafana Bafana, AFCON, and in-depth match analysis. Where goals meet stories.">
-  <meta name="keywords" content="football news, Premier League, transfer news, UEFA, Bafana Bafana, AFCON, Arsenal, VAR, ref cam, national team, football analysis, soccer news, 90 minutes, second half, red card">
-  <meta name="author" content="Gazillion Goals">
-  <meta name="robots" content="index, follow">
-    
-  <link rel="canonical" href="https://gazillion-goals.netlify.app/">
-
-  <!-- OPEN GRAPH / FACEBOOK / WHATSAPP -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://gazillion-goals.netlify.app/">
-  <meta property="og:title" content="Gazillion Goals - Where Goals Meet Stories">
-  <meta property="og:description" content="Your ultimate football source for Premier League news, transfer updates, UEFA coverage, Bafana Bafana, AFCON, and match analysis.">
-  <meta property="og:image" content="https://gazillion-goals.netlify.app/images/footballnow.png">
-
-  <!-- TWITTER -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://gazillion-goals.netlify.app/">
-  <meta property="twitter:title" content="Gazillion Goals - Where Goals Meet Stories">
-  <meta property="twitter:description" content="Football news, Premier League updates, transfer news, UEFA, Bafana Bafana, and AFCON coverage.">
-  <meta property="twitter:image" content="https://gazillion-goals.netlify.app/images/footballnow.png">
-
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;700;900&family=Teko:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Gazillion Goals - Where Goals Meet Stories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    @keyframes moveBackground {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    body {
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(-45deg, #000000, #0a2f0a, #1a5c1a, #0d4d0d, #001a00);
-      background-size: 400% 400%;
-      animation: moveBackground 15s ease infinite;
-      min-height: 100vh;
-      color: white;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    .grid-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        linear-gradient(rgba(74, 222, 128, 0.1) 2px, transparent 2px),
-        linear-gradient(90deg, rgba(74, 222, 128, 0.1) 2px, transparent 2px);
-      background-size: 50px 50px;
-      animation: gridMove 20s linear infinite;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    @keyframes gridMove {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(50px, 50px); }
-    }
-
-    .neon-ball {
-      position: fixed;
-      font-size: 60px;
-      animation: floatCrazy 8s ease-in-out infinite;
-      z-index: 1;
-      filter: drop-shadow(0 0 20px #4ade80) drop-shadow(0 0 40px #22c55e);
-      pointer-events: none;
-    }
-
-    @keyframes floatCrazy {
-      0%, 100% { 
-        transform: translate(0, 0) rotate(0deg) scale(1);
-        opacity: 0.3;
-      }
-      25% { 
-        transform: translate(100px, -80px) rotate(90deg) scale(1.5);
-        opacity: 0.7;
-      }
-      50% { 
-        transform: translate(-50px, -150px) rotate(180deg) scale(0.8);
-        opacity: 0.4;
-      }
-      75% { 
-        transform: translate(-120px, -60px) rotate(270deg) scale(1.3);
-        opacity: 0.6;
-      }
-    }
-
-    .nav-tabs {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(20px);
-      padding: 15px 40px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      border-bottom: 4px solid transparent;
-      border-image: linear-gradient(90deg, #4ade80, #22c55e, #86efac, #4ade80);
-      border-image-slice: 1;
-      box-shadow: 0 5px 40px rgba(74, 222, 128, 0.4);
-      transform-style: preserve-3d;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      padding: 5px;
-    }
-
-    .hamburger span {
-      width: 30px;
-      height: 4px;
-      background: linear-gradient(90deg, #4ade80, #22c55e);
-      margin: 4px 0;
-      border-radius: 3px;
-      box-shadow: 0 0 10px #4ade80;
-      transition: all 0.3s ease;
-    }
-
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(-45deg) translate(-7px, 8px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-      transform: translateX(50px);
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(45deg) translate(-7px, -8px);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 18px;
-      padding: 12px 25px;
-      border-radius: 0;
-      position: relative;
-      overflow: hidden;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      transition: all 0.4s ease;
-      border: 2px solid transparent;
-      font-family: 'Teko', sans-serif;
-    }
-
-    .nav-links a::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, #4ade80, #22c55e);
-      transition: left 0.3s ease;
-      z-index: -1;
-      transform: skewX(-20deg);
-    }
-
-    .nav-links a:hover::before {
-      left: 0;
-    }
-
-    .nav-links a:hover {
-      transform: translateY(-5px) scale(1.1);
-      border-color: #4ade80;
-      box-shadow: 0 10px 30px rgba(74, 222, 128, 0.6);
-      text-shadow: 0 0 20px rgba(74, 222, 128, 0.8);
-    }
-
-    .site-name {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 36px;
-      font-weight: 900;
-      background: linear-gradient(45deg, #4ade80, #22c55e, #86efac, #4ade80);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: moveBackground 3s ease infinite;
-      filter: drop-shadow(0 0 20px rgba(74, 222, 128, 0.8));
-      letter-spacing: 3px;
-    }
-
-    .hero-section {
-      position: relative;
-      z-index: 2;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 120px 20px 60px;
-      text-align: center;
-      perspective: 1000px;
-    }
-
-    .hero-title {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 9rem;
-      font-weight: 900;
-      margin-bottom: 20px;
-      background: linear-gradient(45deg, #4ade80, #fff, #22c55e, #86efac, #4ade80);
-      background-size: 400% 400%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: moveBackground 3s ease infinite, glitchTitle 5s ease-in-out infinite;
-      text-shadow: 0 0 80px rgba(74, 222, 128, 0.8);
-      letter-spacing: 15px;
-      transform: rotateX(10deg);
-      filter: drop-shadow(0 10px 40px rgba(74, 222, 128, 0.6));
-    }
-
-    @keyframes glitchTitle {
-      0%, 90%, 100% { transform: rotateX(10deg) translateY(0); }
-      92% { transform: rotateX(12deg) translateY(-10px) translateX(-5px); }
-      94% { transform: rotateX(8deg) translateY(5px) translateX(5px); }
-      96% { transform: rotateX(10deg) translateY(0); }
-    }
-
-    .hero-subtitle {
-      font-size: 2.5rem;
-      margin-bottom: 60px;
-      color: #4ade80;
-      font-family: 'Teko', sans-serif;
-      font-weight: 700;
-      letter-spacing: 8px;
-      text-transform: uppercase;
-      animation: pulseGlow 2s ease-in-out infinite;
-      text-shadow: 0 0 30px rgba(74, 222, 128, 0.8), 0 0 60px rgba(74, 222, 128, 0.4);
-    }
-
-    @keyframes pulseGlow {
-      0%, 100% { text-shadow: 0 0 30px rgba(74, 222, 128, 0.8), 0 0 60px rgba(74, 222, 128, 0.4); }
-      50% { text-shadow: 0 0 50px rgba(74, 222, 128, 1), 0 0 100px rgba(74, 222, 128, 0.6); }
-    }
-
-    .soccer-container {
-      position: relative;
-      width: 200px;
-      height: 200px;
-      margin: 50px auto;
-    }
-
-    .soccer-ball-main {
-      width: 200px;
-      height: 200px;
-      font-size: 150px;
-      animation: crazyBounce 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-      filter: drop-shadow(0 20px 50px rgba(74, 222, 128, 0.8));
-      position: relative;
-      z-index: 2;
-    }
-
-    @keyframes crazyBounce {
-      0%, 100% { 
-        transform: translateY(0) rotate(0deg) scale(1);
-      }
-      25% { 
-        transform: translateY(-80px) rotate(90deg) scale(1.3);
-      }
-      50% { 
-        transform: translateY(-120px) rotate(180deg) scale(1);
-      }
-      75% { 
-        transform: translateY(-60px) rotate(270deg) scale(1.2);
-      }
-    }
-
-    .orbit-ring {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 280px;
-      height: 280px;
-      border: 4px solid rgba(74, 222, 128, 0.3);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      animation: rotateRing 8s linear infinite;
-    }
-
-    @keyframes rotateRing {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-
-    .orbit-ball {
-      position: absolute;
-      font-size: 30px;
-      top: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: orbitGlow 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes orbitGlow {
-      from { filter: drop-shadow(0 0 10px #4ade80); }
-      to { filter: drop-shadow(0 0 30px #22c55e); }
-    }
-
-    /* ONE BIG CONTENT BOX */
-    .content-section {
-      position: relative;
-      z-index: 2;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 20px;
-    }
-
-    .content-box {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(15, 50, 15, 0.9));
-      padding: 80px 60px;
-      border: 4px solid #4ade80;
-      position: relative;
-      overflow: hidden;
-      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 50px), calc(100% - 50px) 100%, 0 100%);
-      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      transform-style: preserve-3d;
-      width: 100%;
-    }
-
-    .content-box::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(74, 222, 128, 0.3), transparent);
-      transform: rotate(0deg);
-      animation: scanEffect 4s linear infinite;
-    }
-
-    @keyframes scanEffect {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .content-box::after {
-      content: '⚽';
-      position: absolute;
-      font-size: 350px;
-      opacity: 0.03;
-      right: -80px;
-      bottom: -100px;
-      animation: rotateSlow 20s linear infinite;
-      z-index: 0;
-    }
-
-    @keyframes rotateSlow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .content-box:hover {
-      transform: translateY(-20px) scale(1.02);
-      box-shadow: 0 40px 100px rgba(74, 222, 128, 0.6),
-                  0 0 100px rgba(74, 222, 128, 0.4),
-                  inset 0 0 50px rgba(74, 222, 128, 0.2);
-      border-color: #22c55e;
-    }
-
-    .section-divider {
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, transparent, #4ade80, transparent);
-      margin: 50px 0;
-      box-shadow: 0 0 20px rgba(74, 222, 128, 0.6);
-      position: relative;
-      z-index: 1;
-    }
-
-    .content-box h2 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 4rem;
-      margin-bottom: 30px;
-      color: #4ade80;
-      position: relative;
-      display: inline-block;
-      letter-spacing: 6px;
-      z-index: 1;
-      text-shadow: 0 0 40px rgba(74, 222, 128, 0.8);
-      animation: flicker 3s ease-in-out infinite;
-    }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 1; text-shadow: 0 0 40px rgba(74, 222, 128, 0.8); }
-      50% { opacity: 0.95; text-shadow: 0 0 60px rgba(74, 222, 128, 1); }
-    }
-
-    .content-box h2::before {
-      content: '//';
-      position: absolute;
-      left: -60px;
-      color: #22c55e;
-      opacity: 0.6;
-    }
-
-    .content-box h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, #4ade80, transparent);
-      box-shadow: 0 0 20px #4ade80;
-    }
-
-    .content-box p {
-      font-size: 1.3rem;
-      line-height: 2;
-      color: #e8f5e9;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
-      font-weight: 400;
-      padding-left: 30px;
-      font-family: 'Orbitron', sans-serif;
-    }
-
-    .content-box p::before {
-      content: '>';
-      position: absolute;
-      left: 0;
-      color: #4ade80;
-      font-weight: bold;
-      font-size: 1.5rem;
-      animation: blink 1.5s ease-in-out infinite;
-    }
-
-    @keyframes blink {
-      0%, 50%, 100% { opacity: 1; }
-      25%, 75% { opacity: 0; }
-    }
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-      margin-top: 40px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      padding: 25px 30px;
-      background: linear-gradient(90deg, rgba(74, 222, 128, 0.2), transparent);
-      border-left: 5px solid #4ade80;
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-      clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
-    }
-
-    .contact-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.4), transparent);
-      transition: left 0.5s ease;
-    }
-
-    .contact-item:hover::before {
-      left: 100%;
-    }
-
-    .contact-item:hover {
-      background: linear-gradient(90deg, rgba(74, 222, 128, 0.4), rgba(34, 197, 94, 0.2));
-      transform: translateX(20px) scale(1.05);
-      border-left-width: 10px;
-      box-shadow: 0 10px 40px rgba(74, 222, 128, 0.6);
-    }
-
-    .contact-item i {
-      font-size: 40px;
-      color: #4ade80;
-      filter: drop-shadow(0 0 15px #4ade80);
-      transition: all 0.4s ease;
-    }
-
-    .contact-item:hover i {
-      transform: scale(1.5) rotate(360deg);
-      filter: drop-shadow(0 0 30px #22c55e);
-    }
-
-    .contact-item span {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #e8f5e9;
-      font-family: 'Orbitron', sans-serif;
-    }
-
-    /* IMAGE GALLERY */
-    .image-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      padding: 100px 40px;
-      max-width: 1600px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .image-card {
-      position: relative;
-      height: 350px;
-      cursor: pointer;
-      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      transform-style: preserve-3d;
-      clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
-      border: 4px solid #4ade80;
-      overflow: hidden;
-    }
-
-    .image-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(45deg, rgba(74, 222, 128, 0.8), rgba(34, 197, 94, 0.8));
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      z-index: 1;
-      mix-blend-mode: multiply;
-    }
-
-    .image-card:hover::before {
-      opacity: 1;
-    }
-
-    .image-card:hover {
-      transform: scale(1.15) rotate(5deg) translateZ(50px);
-      box-shadow: 0 30px 80px rgba(74, 222, 128, 0.6),
-                  0 0 100px rgba(74, 222, 128, 0.4);
-      border-color: #22c55e;
-      z-index: 10;
-    }
-
-    .image-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    .image-card:hover img {
-      transform: scale(1.3) rotate(-5deg);
-    }
-
-    footer {
-      background: rgba(0, 0, 0, 0.95);
-      color: white;
-      text-align: center;
-      padding: 50px 20px;
-      margin-top: 80px;
-      border-top: 4px solid #4ade80;
-      position: relative;
-      z-index: 2;
-      font-family: 'Orbitron', sans-serif;
-      box-shadow: 0 -10px 50px rgba(74, 222, 128, 0.3);
-    }
-
-    footer a {
-      color: #4ade80;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-weight: 700;
-    }
-
-    footer a:hover {
-      color: #22c55e;
-      text-shadow: 0 0 20px rgba(74, 222, 128, 0.8);
-    }
-    /* === AFCON CHAMPIONS BANNER === */
-    .afcon-banner {
-      background: linear-gradient(135deg, rgba(0, 100, 0, 0.95), rgba(255, 215, 0, 0.9));
-      padding: 60px 40px;
-      margin: 40px 20px;
-      max-width: calc(100% - 40px);
-      width: 100%;
-      box-sizing: border-box;
-      border: 5px solid #FFD700;
-      position: relative;
-      overflow: hidden;
-      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%);
-      box-shadow: 0 20px 60px rgba(255, 215, 0, 0.6), 0 0 80px rgba(255, 215, 0, 0.4);
-      animation: borderPulse 3s ease-in-out infinite;
-      z-index: 2;
-      min-width: 0;
-    }
-
-    @keyframes borderPulse {
-      0%, 100% { 
-        border-color: #FFD700;
-        box-shadow: 0 20px 60px rgba(255, 215, 0, 0.6), 0 0 80px rgba(255, 215, 0, 0.4);
-      }
-      50% { 
-        border-color: #FFA500;
-        box-shadow: 0 25px 80px rgba(255, 215, 0, 0.8), 0 0 100px rgba(255, 215, 0, 0.6);
-      }
-    }
-
-    .afcon-banner::before {
-      content: '🏆';
-      position: absolute;
-      font-size: 400px;
-      opacity: 0.1;
-      right: -100px;
-      top: 50%;
-      transform: translateY(-50%) rotate(-15deg);
-      animation: floatTrophy 6s ease-in-out infinite;
-      z-index: 0;
-    }
-
-    @keyframes floatTrophy {
-      0%, 100% { transform: translateY(-50%) rotate(-15deg); }
-      50% { transform: translateY(-60%) rotate(-10deg); }
-    }
-
-    .afcon-content {
-      display: flex;
-      align-items: center;
-      gap: 50px;
-      position: relative;
-      z-index: 2;
-      min-width: 0;
-      width: 100%;
-    }
-
-    .afcon-image {
-      flex-shrink: 0;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 8px solid #FFD700;
-      box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
-      animation: imageGlow 2s ease-in-out infinite;
-    }
-
-    @keyframes imageGlow {
-      0%, 100% { 
-        box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
-        transform: scale(1);
-      }
-      50% { 
-        box-shadow: 0 0 80px rgba(255, 215, 0, 1);
-        transform: scale(1.05);
-      }
-    }
-
-    .afcon-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .afcon-image:hover img {
-      transform: scale(1.2) rotate(5deg);
-    }
-
-    .afcon-text {
-      flex: 1;
-      min-width: 0;
-      width: 100%;
-    }
-
-    .afcon-text h2 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 5rem;
-      margin: 0 0 20px 0;
-      color: #FFD700;
-      text-shadow: 0 0 40px rgba(255, 215, 0, 1), 3px 3px 0 #006400, 6px 6px 0 rgba(0, 100, 0, 0.5);
-      letter-spacing: 8px;
-      animation: titleShine 3s ease-in-out infinite;
-      line-height: 1.2;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      hyphens: auto;
-    }
-
-    @keyframes titleShine {
-      0%, 100% { 
-        text-shadow: 0 0 40px rgba(255, 215, 0, 1), 3px 3px 0 #006400, 6px 6px 0 rgba(0, 100, 0, 0.5);
-      }
-      50% { 
-        text-shadow: 0 0 60px rgba(255, 215, 0, 1), 3px 3px 0 #FFD700, 6px 6px 0 rgba(255, 215, 0, 0.5);
-      }
-    }
-
-    .afcon-text p {
-      font-size: 1.3rem;
-      color: #FFFFFF;
-      font-weight: 600;
-      margin: 15px 0;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-      animation: textPulse 2s ease-in-out infinite;
-      line-height: 1.6;
-    }
-
-    @keyframes textPulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.9; }
-    }
-
-    .trophy-icon {
-      font-size: 60px;
-      display: inline-block;
-      animation: bounce 1.5s ease-in-out infinite;
-      margin: 0 15px;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    @media (max-width: 768px) {
-      .hamburger { display: flex; }
-
-      .nav-links {
-        position: fixed;
-        top: 73px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 73px);
-        background: rgba(0, 0, 0, 0.98);
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 50px;
-        transition: left 0.4s ease;
-      }
-
-      .nav-links.active { left: 0; }
-
-      .nav-links a {
-        margin: 20px 0;
-        font-size: 24px;
-        width: 80%;
-        text-align: center;
-      }
-
-      .hero-title { font-size: 4rem; letter-spacing: 5px; }
-      .hero-subtitle { font-size: 1.5rem; letter-spacing: 3px; }
-      .content-section {
-        padding: 60px 20px;
-      }
-      .content-box {
-        padding: 50px 30px;
-        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 35px), calc(100% - 35px) 100%, 0 100%);
-      }
-      .content-box h2 { font-size: 3rem; }
-      .section-divider {
-        margin: 35px 0;
-      }
-      .image-gallery {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 25px;
-        padding: 60px 20px;
-      }
-
-      /* AFCON Banner Mobile */
-      .afcon-banner {
-        padding: 30px 15px;
-        margin: 20px 10px;
-        max-width: calc(100% - 20px);
-        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
-        border-width: 3px;
-      }
-
-      .afcon-banner::before {
-        font-size: 150px;
-        right: -30px;
-      }
-
-      .afcon-content {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-      }
-
-      .afcon-image {
-        width: 140px;
-        height: 140px;
-        border-width: 5px;
-      }
-
-      .afcon-text h2 {
-        font-size: 1.6rem;
-        letter-spacing: 0.5px;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
-        max-width: 100%;
-      }
-
-      .afcon-text p {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        padding: 0 5px;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
-        max-width: 100%;
-      }
-
-      .trophy-icon {
-        font-size: 28px;
-        margin: 0 3px;
-      }
-    }
-
-    /* FOR VERY SMALL PHONES */
-    @media (max-width: 480px) {
-      .afcon-banner {
-        padding: 20px 8px;
-        margin: 15px 5px;
-        max-width: calc(100% - 10px);
-      }
-
-      .afcon-banner::before {
-        font-size: 120px;
-        right: -20px;
-      }
-
-      .afcon-image {
-        width: 110px;
-        height: 110px;
-      }
-
-      .afcon-text h2 {
-        font-size: 1.3rem;
-        letter-spacing: 0.3px;
-        hyphens: auto;
-        max-width: 100%;
-      }
-
-      .afcon-text p {
-        font-size: 0.8rem;
-        padding: 0 3px;
-        hyphens: auto;
-        max-width: 100%;
-      }
-
-      .trophy-icon {
-        font-size: 22px;
-      }
-    }
-
-    /* FOR TABLETS AND IPADS */
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .afcon-banner {
-        padding: 50px 30px;
-        margin: 30px 20px;
-        max-width: calc(100% - 40px);
-      }
-
-      .afcon-content {
-        gap: 40px;
-      }
-
-      .afcon-image {
-        width: 250px;
-        height: 250px;
-      }
-
-      .afcon-text h2 {
-        font-size: 3rem;
-        letter-spacing: 3px;
-        max-width: 100%;
-        hyphens: auto;
-      }
-
-      .afcon-text p {
-        font-size: 1.05rem;
-        max-width: 100%;
-        hyphens: auto;
-      }
-
-      .trophy-icon {
-        font-size: 45px;
-      }
-    }
-
-    /* FOR IPAD AIR AND PORTRAIT TABLETS */
-    @media (min-width: 768px) and (max-width: 820px) and (orientation: portrait) {
-      .afcon-banner {
-        padding: 40px 25px;
-        margin: 25px 15px;
-      }
-
-      .afcon-content {
-        flex-direction: column;
-        gap: 30px;
-        text-align: center;
-      }
-
-      .afcon-image {
-        width: 200px;
-        height: 200px;
-      }
-
-      .afcon-text h2 {
-        font-size: 2.5rem;
-        letter-spacing: 2px;
-        max-width: 100%;
-        padding: 0 10px;
-      }
-
-      .afcon-text p {
-        font-size: 1rem;
-        max-width: 100%;
-        padding: 0 15px;
-      }
-
-      .trophy-icon {
-        font-size: 40px;
-      }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f5f5;
+      --mid: #1a1a1a;
+      --border: #2a2a2a;
+      --accent: #ffffff;
+      --muted: #888;
     }
 
     html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      z-index: 1000;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: var(--white);
+    }
+    .logo span { color: var(--muted); font-weight: 400; font-size: 0.9rem; display:block; letter-spacing: 3px; font-family: 'Inter', sans-serif; text-transform: uppercase; }
+
+    .nav-links { display:flex; gap:8px; align-items:center; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 2px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); background: var(--mid); }
+
+    .hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px; }
+    .hamburger span { width:24px; height:2px; background:var(--white); transition:all 0.3s; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.active span:nth-child(2) { opacity:0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+    /* ── HERO ── */
+    .hero {
+      padding-top: 64px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding-left: 8vw;
+      padding-right: 8vw;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '⚽';
+      position: absolute;
+      right: 6vw;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: clamp(160px, 22vw, 340px);
+      opacity: 0.04;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 9vw, 9rem);
+      font-weight: 900;
+      line-height: 0.95;
+      color: var(--white);
+      margin-bottom: 32px;
+      max-width: 800px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .hero-tagline {
+      font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      color: var(--muted);
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--white);
+      color: var(--black);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .hero-cta:hover { background: var(--muted); color: var(--white); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 8vw;
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-scroll::before { content:''; width:40px; height:1px; background:var(--border); }
+
+    /* ── AFCON BANNER ── */
+    .afcon-section {
+      padding: 80px 8vw;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .afcon-badge {
+      aspect-ratio: 1;
+      max-width: 280px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      filter: grayscale(20%);
+      transition: filter 0.4s;
+    }
+    .afcon-badge:hover { filter: grayscale(0%); }
+    .afcon-badge img { width:100%; height:100%; object-fit:cover; }
+
+    .afcon-label {
+      font-size: 0.65rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .afcon-label::before { content:''; width:30px; height:1px; background:var(--muted); }
+
+    .afcon-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: var(--white);
+    }
+
+    .afcon-body p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+    .afcon-body strong { color: var(--white); }
+
+    /* ── ABOUT / OFFERS ── */
+    .info-section {
+      padding: 80px 8vw;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    .info-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 28px;
+      color: var(--white);
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-block p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .offer-list { list-style: none; }
+    .offer-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .offer-list li:last-child { border-bottom: none; }
+    .offer-list li .icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+      width: 24px;
+      text-align: center;
+    }
+    .offer-list li strong { color: var(--white); display:block; margin-bottom:2px; font-size:0.95rem; }
+
+    /* ── GALLERY ── */
+    .gallery-section {
+      padding: 80px 8vw;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gallery-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+    .gallery-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+    }
+    .gallery-header span {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .gallery-item {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .gallery-item:hover { border-color: #555; }
+
+    .gallery-img-wrap {
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top;
+      filter: grayscale(25%);
+      transition: transform 0.5s ease, filter 0.5s ease;
+      display: block;
+    }
+    .gallery-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
+
+    .gallery-card-label {
+      padding: 18px 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .gallery-card-label .card-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .gallery-card-label .card-tag {
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 48px 8vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .footer-copy {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    .footer-tiktok a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .footer-tiktok a:hover { color: var(--white); }
+    .footer-tiktok i { font-size: 1rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links { display:none; position:fixed; top:64px; left:0; width:100%; height:calc(100vh - 64px); background:rgba(10,10,10,0.98); flex-direction:column; justify-content:center; align-items:center; gap:32px; }
+      .nav-links.active { display:flex; }
+      .nav-links a { font-size: 1.1rem; }
+      .hamburger { display:flex; }
+      .hero { padding-left:6vw; padding-right:6vw; }
+      .afcon-section { grid-template-columns: 1fr; gap:32px; padding:60px 6vw; }
+      .afcon-badge { max-width: 180px; margin: 0 auto; }
+      .afcon-body { text-align:center; }
+      .afcon-label { justify-content: center; }
+      .info-section { grid-template-columns: 1fr; gap:48px; padding:60px 6vw; }
+      .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
+      .gallery-section { padding:60px 6vw; }
+      footer { flex-direction:column; text-align:center; padding:40px 6vw; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 3rem; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap:1px; }
+    }
   </style>
 </head>
 <body>
 
-  <div class="grid-bg"></div>
-
-  <div class="neon-ball" style="top: 10%; left: 10%; animation-delay: 0s;">⚽</div>
-  <div class="neon-ball" style="top: 60%; right: 15%; animation-delay: 2s;">⚽</div>
-  <div class="neon-ball" style="bottom: 20%; left: 20%; animation-delay: 4s;">⚽</div>
-
-  <div class="nav-tabs">
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
+  <!-- NAV -->
+  <nav>
+    <div class="logo">
+      Gazillion Goals
+      <span>Where Goals Meet Stories</span>
     </div>
-
+    <div class="hamburger" id="ham" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
     <div class="nav-links" id="navLinks">
-      <a href="index.html">HOME</a>
-      <a href="events.html">EVENTS</a>
-      <a href="twists.html">TWISTS</a>
-      <a href="fitcheck.html">FIT CHECK</a>
+      <a href="index.html">Home</a>
+      <a href="events.html">Events</a>
+      <a href="twists.html">Twists</a>
+      <a href="fitcheck.html">Fit Check</a>
     </div>
+  </nav>
 
-    <span class="site-name">GAZILLION GOALS</span>
-  </div>
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Football · Analysis · Culture</p>
+    <h1 class="hero-title">Where Goals<br><em>Meet Stories</em></h1>
+    <p class="hero-tagline">Covering Premier League, UEFA, Bafana Bafana, AFCON and everything in between.</p>
+  </section>
 
-  <div class="hero-section">
-    <h1 class="hero-title">GAZILLION GOALS</h1>
-    <p class="hero-subtitle">⚡ WHERE GOALS MEET STORIES ⚡</p>
-    
-    <div class="soccer-container">
-      <div class="orbit-ring">
-        <div class="orbit-ball">⚽</div>
+  <!-- AFCON BANNER -->
+  <section class="afcon-section">
+    <div class="afcon-badge">
+      <img src="images/AFCONFINAL.webp" alt="AFCON 2025 Final" loading="lazy">
+    </div>
+    <div class="afcon-body">
+      <p class="afcon-label">AFCON 2025 · Champions</p>
+      <h2 class="afcon-title">Senegal Are Africa's<br>Champions 🏆</h2>
+      <p>In a dramatic final that seemed to swing Morocco's way, <strong>Les Lions de la Teranga</strong> summoned something special to overpower the host nation and claim the 2025 Africa Cup of Nations.</p>
+      <p>A historic night. A deserving triumph. <strong>Well done, Senegal.</strong></p>
+    </div>
+  </section>
+
+  <!-- ABOUT + OFFERS -->
+  <section class="info-section">
+    <div class="info-block">
+      <h2>About Us</h2>
+      <p>We're not just another football platform. Gazillion Goals is where passion meets sharp storytelling, coverage that makes you feel every minute of the game.</p>
+      <p>From transfer news to tactical breakdowns, we bring you the stories behind the scorelines.</p>
+    </div>
+    <div class="info-block">
+      <h2>What We Offer</h2>
+      <ul class="offer-list">
+        <li>
+          <span class="icon">⚡</span>
+          <div><strong>Football News Updates</strong>Delivered by GG's smooth presenters</div>
+        </li>
+        <li>
+          <span class="icon">🔥</span>
+          <div><strong>Weekend %</strong>Your trusted Weekend Wrap-Up Show</div>
+        </li>
+        <li>
+          <span class="icon">📞</span>
+          <div><strong>Football Twists</strong>Our live call in show</div>
+        </li>
+        <li>
+          <span class="icon">🎯</span>
+          <div><strong>Events</strong>Your favourite football events, covered</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery-section">
+    <div class="gallery-header">
+      <h2>The Game</h2>
+      <span>Latest Coverage</span>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="images/saka arsenal.webp" alt="Bukayo Saka" loading="lazy">
+        </div>
+        <div class="gallery-card-label">
+          <span class="card-title">Bukayo Saka</span>
+        </div>
       </div>
-      <div class="soccer-ball-main">⚽</div>
-    </div>
-  </div>
-
-  <!-- AFCON CHAMPIONS BANNER -->
-  <div class="afcon-banner">
-    <div class="afcon-content">
-      <div class="afcon-image">
-        <img src="images/AFCONFINAL.webp" alt="Senegal National Team" loading="lazy">
+      <div class="gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="images/lamine yamal.webp" alt="Lamine Yamal" loading="lazy">
+        </div>
+        <div class="gallery-card-label">
+          <span class="card-title">Lamine Yamal</span>
+        </div>
       </div>
-      <div class="afcon-text">
-        <h2>
-          <span class="trophy-icon">🏆</span>
-          CONGRATULATIONS
-          <span class="trophy-icon">🏆</span>
-        </h2>
-        <p>SENEGAL ARE THE 2025 AFCON CHAMPIONS!!</p>
-        <p>In a dramatic and intense football match that seemed to favour the host nation, Senegal were able to overpower Morocco and lift the 2025 Africa Cup Of Nations trophy.</p>
-        <p>Well done Les Lions de la Teranga!!</p>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="images/bafana bafana.webp" alt="Bafana Bafana" loading="lazy">
+        </div>
+        <div class="gallery-card-label">
+          <span class="card-title">Bafana Bafana</span>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="content-section">
-    <div class="content-box">
-      <h2>ABOUT US</h2>
-      <p>We're not just another football platform</p>
-      <p>We're a revolution in sports coverage</p>
-      <p>Bringing you stories that make you feel alive</p>
-      <p>This is where passion meets innovation</p>
-
-      <div class="section-divider"></div>
-
-      <h2>WHAT WE OFFER</h2>
-      <p>⚡ Football news updates - delivered by GG smooth presenters</p>
-      <p>🔥 Weekend % - Your trusted Weekend Wrap-Up Show</p>
-      <p>💎 Football Twists - Call in Show</p>
-      <p>🎯 Your Favourite Football Events</p>
-    </div>
-  </div>
-
-  <div class="image-gallery">
-    <div class="image-card">
-      <img src="images/SUNDOWNS.PNG" alt="Sundowns" loading="lazy">
-    </div>
-    <div class="image-card">
-      <img src="images/Saka.jpg" alt="Saka" loading="lazy">
-    </div>
-    <div class="image-card">
-      <img src="images/LAMINE.PNG" alt="Lamine" loading="lazy">
-    </div>
-    <div class="image-card">
-      <img src="images/PSG.jpg" alt="PSG" loading="lazy">
-    </div>
-    <div class="image-card">
-      <img src="images/RAFA.jpg" alt="Rafa" loading="lazy">
-    </div>
-    <div class="image-card">
-      <img src="images/LEVER.jpg" alt="Lever" loading="lazy">
-    </div>
-    <div class="image-card">
-      <img src="images/BENZEMA.jpg" alt="Benzema" loading="lazy">
-    </div>
-    <div class="image-card">
-      <img src="images/BafanaBAfana.jpg.webp" alt="Bafana Bafana" loading="lazy">
-    </div>
-  </div>
-
+  <!-- FOOTER -->
   <footer>
-    &copy; 2025 GAZILLION GOALS. ALL RIGHTS RESERVED.<br>
-    DESIGNED BY P N. | FOLLOW US ON TIKTOK
-    <a href="https://www.tiktok.com/@gazilliongoals" target="_blank">
-      <i class="fab fa-tiktok tiktok-icon"></i>
-    </a>
+    <div class="footer-logo">Gazillion Goals</div>
+    <p class="footer-copy">© 2025 Gazillion Goals. All rights reserved. Designed by P N.</p>
+    <div class="footer-tiktok">
+      <a href="https://www.tiktok.com/@gazilliongoals" target="_blank">
+        <i class="fab fa-tiktok"></i> @gazilliongoals
+      </a>
+    </div>
   </footer>
 
- <script>
-    // AFCON Layout Fix - Force layout recalculation on page load
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        const afconBanner = document.querySelector('.afcon-banner');
-        if (afconBanner) {
-          void afconBanner.offsetHeight;
-          afconBanner.style.opacity = '0.99';
-          setTimeout(function() {
-            afconBanner.style.opacity = '1';
-          }, 10);
-        }
-      }, 50);
-    });
-
-    let resizeTimer;
-    window.addEventListener('resize', function() {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function() {
-        const afconBanner = document.querySelector('.afcon-banner');
-        if (afconBanner) {
-          void afconBanner.offsetHeight;
-        }
-      }, 100);
-    });
-
-    // Hamburger Menu Toggle
+  <script>
     function toggleMenu() {
-      const hamburger = document.querySelector('.hamburger');
-      const navLinks = document.getElementById('navLinks');
-      
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
+      document.getElementById('ham').classList.toggle('active');
+      document.getElementById('navLinks').classList.toggle('active');
     }
-
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.getElementById('navLinks');
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
-    });
-
-    document.addEventListener('click', (e) => {
-      const hamburger = document.querySelector('.hamburger');
-      const navLinks = document.getElementById('navLinks');
-      
-      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-      }
-    });
+    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+      document.getElementById('ham').classList.remove('active');
+      document.getElementById('navLinks').classList.remove('active');
+    }));
   </script>
+
 </body>
 </html>
