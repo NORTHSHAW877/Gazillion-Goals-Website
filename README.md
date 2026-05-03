@@ -2,172 +2,90 @@
 
 <img width="102" height="20" alt="image" src="https://github.com/user-attachments/assets/986407b9-8772-41e4-829e-b667db55c220" />
 
-**Gazillion Goals** is a sleek, football-themed website designed to showcase the latest in transfer news, player fashion ("FitCheck"), and upcoming football events — with a fast, functional search experience and a mobile-friendly design.
+**Gazillion Goals** A football news and culture website covering Premier League, UEFA, AFCON, Bafana Bafana, and more. Built and designed by P N.
 
 ---
 
-🎯 OVERVIEW
-Gazillion Goals is a passion-driven football media platform delivering:
+# Gazillion Goals ⚽
+### Where Goals Meet Stories
 
-⚡ Football news updates by GG presenters
-🔥 Weekend % - Your trusted Weekend Wrap-Up Show
-💎 Full Time Twists - Interactive call-in show on TikTok
-🎯 Upcoming football events coverage
-👔 Player fashion and style features (Fit Check)
+🌐 **Live site:** [gazillion-goals.netlify.app](https://gazillion-goals.netlify.app)
 
-The website features an explosive neon green aesthetic with futuristic animations, inspired by cyberpunk design and modern web trends.
+---
 
-✨ FEATURES
-🎨 Design Features
+## Pages
 
-Neon Green Color Scheme - Vibrant #4ade80, #22c55e, #86efac gradients
-Animated Background - Moving gradient background with animated grid overlay
-Floating Soccer Balls - Animated neon soccer ball emojis floating across the screen
-Glitch Effects - Title animations with glitch and 3D rotation effects
-Laser Scan Effects - Rotating laser scan animations on content boxes
-Angular Design - Sharp, angular clip-paths (no rounded corners)
-Blinking Arrows - Animated green arrows (>) before list items
-Hover Transformations - 3D rotations, scale effects, and glowing shadows
+| Page | File | Description |
+|------|------|-------------|
+| Home | `index.html` | Landing page with hero, AFCON banner, about section, and image gallery |
+| Events | `events.html` | Upcoming football events and tournaments |
+| Twists | `twists.html` | Full Time Twists — the interactive TikTok call-in show |
+| Fit Check | `fitcheck.html` | Footballer of the Month fashion spotlight |
 
-🎭 Animations
+---
 
-Pulsing glows on text
-Rotating soccer ball emojis
-Orbit ring animations
-Crazy bouncing effects
-Image zoom and tilt on hover
-Navigation link transformations
-Icon rotations (360° spins)
-Shimmer effects
+## Tech Stack
 
-📱 Responsive Features
+- Pure HTML & CSS — no frameworks, no dependencies
+- Google Fonts: `Inter`, `Playfair Display`
+- Font Awesome 6.4 (icons, via CDN)
+- Hosted on Netlify
 
-Hamburger menu for mobile devices
-Touch-friendly navigation
-Adaptive layouts for all screen sizes
-Optimized for iPhone SE (375px) to desktop (1920px+)
-Single-column layouts on small screens
+---
 
+## Project Structure
 
-🗂️ WEBSITE STRUCTURE
-File Names & Navigation
-📁 Website Root
-├── index.html          → HOME
-├── events.html         → EVENTS (Upcoming Events)
-├── twists.html         → TWISTS (Full Time Twists)
-├── fitcheck.html       → FIT CHECK (Player Fashion)
-└── 📁 images/
-    ├── SUNDOWNS.PNG
+```
+gazillion-goals/
+├── index.html
+├── events.html
+├── twists.html
+├── fitcheck.html
+└── images/
+    ├── AFCONFINAL.webp
     ├── Saka.jpg
     ├── LAMINE.PNG
-    ├── PSG.jpg
-    ├── RAFA.jpg
-    ├── LEVER.jpg
-    ├── BENZEMA.jpg
     ├── BafanaBAfana.jpg.webp
-    ├── kk1.PNG, kk2.PNG, kk3.PNG (Khuliso Mudau)
-    ├── mike1.jpg, mike4.jpg, MM4.PNG, mmm2.PNG (Mike Maignan)
-    ├── ramos2.jpg, ramos3.jpg, ramosmainfinal.jpg (Sergio Ramos)
-    └── [other player images]
-
-🎨 DESIGN PHILOSOPHY
-Color Palette
-
-Primary Green: #4ade80 (Bright neon green)
-Secondary Green: #22c55e (Vibrant green)
-Accent Green: #86efac (Light green)
-Background: Dark gradient (#000000 → #0a2f0a → #1a5c1a)
-Text: #e8f5e9 (Off-white), #ffffff (Pure white)
-
-Typography
-
-Titles: Bebas Neue (Bold, uppercase, large)
-Body: Orbitron (Futuristic, technical)
-Navigation: Teko (Condensed, sporty)
-
-Design Principles
-
-Bold over Safe - Aggressive, eye-catching design
-No Rounded Corners - Angular clip-paths everywhere
-Maximum Animation - Everything moves and glows
-Futuristic Aesthetic - Cyberpunk meets sports media
-Green Dominance - Neon green inspired by the logo
-
-
-💻 TECHNOLOGIES USED
-Core Technologies
-
-HTML5 - Semantic markup
-CSS3 - Advanced animations, gradients, transforms
-JavaScript (Vanilla) - Hamburger menu, interactions
-No frameworks - Pure HTML/CSS/JS only
-
-External Resources
-
-Google Fonts - Bebas Neue, Orbitron, Teko
-Font Awesome 6.4.0 - Icons (TikTok, email, etc.)
-CDN - All external resources loaded via CDN
-
-CSS Features Used
-
-CSS Grid & Flexbox
-CSS Animations & Keyframes
-CSS Transforms (3D)
-CSS Gradients (linear, radial)
-CSS Clip-path
-CSS Filters (drop-shadow, blur)
-CSS backdrop-filter
-CSS custom properties (via direct values)
-
-📱 RESPONSIVE DESIGN
-Breakpoints
-css/* Tablet & Below */
-@media (max-width: 768px)
-
-/* iPhone SE & Small Phones */
-@media (max-width: 480px)
-Mobile Optimizations
-
-Navigation: Hamburger menu (full-screen overlay)
-Typography: Reduced font sizes
-Images: Single column layout on small screens
-Padding: Reduced spacing for small screens
-Grid: Adaptive columns (3 columns → 2 → 1)
-Touch Targets: Larger tap areas for mobile
-
-iPhone SE Specific Fixes
-
-Image gallery: Single column (no cutoff)
-Content boxes: Adjusted padding
-Navigation: Full-width menu
-Fixed horizontal overflow issues
-
-📝 NOTES FOR FUTURE UPDATES
-To Add New Player to Fit Check:
-
-Add player images to images/ folder
-Copy existing player-box HTML structure
-Update: name, position, team, description, style, image paths
-Keep same layout: Name → Info → Main image → 2 outfit images
-
-To Update Navigation:
-
-Open all HTML files
-Update the navigation links in the <div class="nav-links"> section
-Ensure consistency across all pages
-
-To Change Colors:
-Search and replace these color codes:
-
-#4ade80 (Primary green)
-#22c55e (Secondary green)
-#86efac (Accent green)
-
-**Pumla Nofemele**  
-Designer & Developer of Gazillion Goals  
-Crafted with a passion for football, digital creativity, and seamless user experience.
+    ├── him1.jpg
+    ├── kk2.PNG
+    ├── kk3.PNG
+    └── ...
+```
 
 ---
 
-## 📝 License
+## How to Update
+
+### Fit Check — Monthly Update
+Every month, open `fitcheck.html` and change these 5 things:
+
+1. **Month badge** — update the month name
+2. **Hero image** — swap `src` to new player's main photo
+3. **Player details** — name, club, style, trend, our take, verdict
+4. **Fashion Look 1** — swap `src`
+5. **Fashion Look 2** — swap `src`
+
+## Design System
+
+| Property | Value |
+|----------|-------|
+| Background | `#0a0a0a` |
+| Text | `#f5f5f5` |
+| Muted text | `#888888` |
+| Borders | `#2a2a2a` |
+| Heading font | Playfair Display |
+| Body font | Inter |
+
+---
+
+## Social
+
+TikTok: [@gazilliongoals](https://www.tiktok.com/@gazilliongoals)
+
+---
+
+## License
+
+© 2025 Gazillion Goals. All rights reserved.
+
 
