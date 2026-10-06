@@ -161,8 +161,8 @@
     }
     .hero-scroll::before { content:''; width:40px; height:1px; background:var(--border); }
 
-    /* ── AFCON BANNER ── */
-    .afcon-section {
+    /* ── WORLD CUP BANNER ── */
+    .worldcup-section {
       padding: 80px 8vw;
       border-bottom: 1px solid var(--border);
       display: grid;
@@ -171,7 +171,8 @@
       align-items: center;
     }
 
-    .afcon-badge {
+    .worldcup-badge {
+      width: 100%;
       aspect-ratio: 1;
       max-width: 280px;
       border-radius: 50%;
@@ -180,10 +181,16 @@
       filter: grayscale(20%);
       transition: filter 0.4s;
     }
-    .afcon-badge:hover { filter: grayscale(0%); }
-    .afcon-badge img { width:100%; height:100%; object-fit:cover; }
+    .worldcup-badge:hover { filter: grayscale(0%); }
+    .worldcup-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
 
-    .afcon-label {
+    .worldcup-label {
       font-size: 0.65rem;
       letter-spacing: 4px;
       text-transform: uppercase;
@@ -193,9 +200,9 @@
       align-items: center;
       gap: 10px;
     }
-    .afcon-label::before { content:''; width:30px; height:1px; background:var(--muted); }
+    .worldcup-label::before { content:''; width:30px; height:1px; background:var(--muted); }
 
-    .afcon-title {
+    .worldcup-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 4vw, 3.5rem);
       font-weight: 900;
@@ -204,14 +211,14 @@
       color: var(--white);
     }
 
-    .afcon-body p {
+    .worldcup-body p {
       font-size: 1rem;
       color: var(--muted);
       line-height: 1.8;
       margin-bottom: 12px;
       font-weight: 400;
     }
-    .afcon-body strong { color: var(--white); }
+    .worldcup-body strong { color: var(--white); }
 
     /* ── ABOUT / OFFERS ── */
     .info-section {
@@ -381,10 +388,10 @@
       .nav-links a { font-size: 1.1rem; }
       .hamburger { display:flex; }
       .hero { padding-left:6vw; padding-right:6vw; }
-      .afcon-section { grid-template-columns: 1fr; gap:32px; padding:60px 6vw; }
-      .afcon-badge { max-width: 180px; margin: 0 auto; }
-      .afcon-body { text-align:center; }
-      .afcon-label { justify-content: center; }
+      .worldcup-section { grid-template-columns: 1fr; gap:32px; padding:60px 6vw; }
+      .worldcup-badge { max-width: 200px; margin: 0 auto; }
+      .worldcup-body { text-align:center; }
+      .worldcup-label { justify-content: center; }
       .info-section { grid-template-columns: 1fr; gap:48px; padding:60px 6vw; }
       .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
       .gallery-section { padding:60px 6vw; }
@@ -394,6 +401,7 @@
     @media (max-width: 480px) {
       .hero-title { font-size: 3rem; }
       .gallery-grid { grid-template-columns: 1fr 1fr; gap:1px; }
+      .worldcup-badge { max-width: 160px; }
     }
   </style>
 </head>
@@ -423,16 +431,16 @@
     <p class="hero-tagline">Covering Premier League, UEFA, Bafana Bafana, AFCON and everything in between.</p>
   </section>
 
-  <!-- AFCON BANNER -->
-  <section class="afcon-section">
-    <div class="afcon-badge">
-      <img src="images/AFCONFINAL.webp" alt="AFCON 2025 Final" loading="lazy">
+  <!-- WORLD CUP 2026 BANNER -->
+  <section class="worldcup-section">
+    <div class="worldcup-badge">
+      <img src="images/WORLDCUP.webp" alt="Spain celebrating their 2026 World Cup win" loading="lazy">
     </div>
-    <div class="afcon-body">
-      <p class="afcon-label">AFCON 2025 · Champions</p>
-      <h2 class="afcon-title">Senegal Are Africa's<br>Champions 🏆</h2>
-      <p>In a dramatic final that seemed to swing Morocco's way, <strong>Les Lions de la Teranga</strong> summoned something special to overpower the host nation and claim the 2025 Africa Cup of Nations.</p>
-      <p>A historic night. A deserving triumph. <strong>Well done, Senegal.</strong></p>
+    <div class="worldcup-body">
+     <p class="worldcup-label">World Cup 2026 · Champions</p>
+      <h2 class="worldcup-title">Spain are the World Cup 2026<br>Champions 🏆</h2>
+      <p>On 19 July 2026, <strong>La Roja</strong> beat Argentina 1-0 in an electric final full of passion and controversy. Spain stayed professional and calm from start to finish to lift the FIFA World Cup.</p>
+      <p>Super sub Ferran Torres will never forget the night he scored the winning goal. <strong>Bien hecho, Spain.</strong></p>
     </div>
   </section>
 

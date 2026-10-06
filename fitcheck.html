@@ -98,6 +98,23 @@
 
     /* ── HOW TO UPDATE NOTE (visible only in code, hidden on page) ── */
 
+    /* ── PREVIOUSLY TRENDING (ARCHIVE) ── */
+    .archive-section { padding:80px 8vw; border-bottom:1px solid var(--border); }
+    .archive-header { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:40px; }
+    .archive-header h2 { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:900; }
+    .archive-header span { font-size:0.7rem; letter-spacing:3px; text-transform:uppercase; color:var(--muted); }
+    .archive-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:24px; }
+    .archive-card { border:1px solid var(--border); overflow:hidden; transition:border-color 0.3s; }
+    .archive-card:hover { border-color:#555; }
+    .archive-card .img-wrap { aspect-ratio:4/5; overflow:hidden; }
+    .archive-card img { width:100%; height:100%; object-fit:cover; object-position:top; filter:grayscale(25%); transition:transform 0.5s, filter 0.5s; display:block; }
+    .archive-card:hover img { transform:scale(1.04); filter:grayscale(0%); }
+    .archive-info { padding:18px 20px; border-top:1px solid var(--border); display:flex; flex-direction:column; gap:6px; }
+    .archive-period { font-size:0.6rem; letter-spacing:3px; text-transform:uppercase; color:var(--muted); font-weight:700; }
+    .archive-name { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:900; }
+    .archive-club { font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:600; }
+    .archive-take { font-size:0.85rem; color:var(--muted); line-height:1.6; margin-top:6px; }
+
     /* ── FOOTER ── */
     footer { padding:48px 8vw; display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--border); flex-wrap:wrap; gap:20px; }
     .footer-logo { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:900; }
@@ -119,6 +136,7 @@
       .hero-info { border-left:none; border-top:1px solid var(--border); padding:36px 28px; }
       .photo-row { grid-template-columns:1fr; gap:2px; }
       footer { flex-direction:column; text-align:center; padding:40px 6vw; }
+      .archive-section { padding:60px 6vw; }
     }
     @media (max-width:480px) {
       .hero-photo { max-height:320px; }
@@ -147,47 +165,40 @@
   </header>
 
   <!-- ════════════════════════════════════════════
-       TO UPDATE MONTHLY — CHANGE THESE 5 THINGS:
-       1. Month badge text
-       2. Hero image src
-       3. Player name, club, style/trend/our take, verdict
-       4. Photo 1 src + label (Fashion Look 1)
-       5. Photo 2 src + label (Fashion Look 2)
-       Photo 3 is always the kit — update src only
+       TO UPDATE EVERY QUARTER:
+       1. Copy the current player into a new card in
+          the "Previously Trending" section below
+       2. Change the badge text
+       3. Change the hero image src
+       4. Change player name, club, style, our take, verdict
+       5. Change Photo 1, 2 and 3 src
   ════════════════════════════════════════════ -->
 
   <section class="featured-section">
 
-    <!-- 1. CHANGE MONTH HERE -->
-    <div class="month-badge">Footballer of the Month · May 2026</div>
+    <div class="month-badge">Trending · Oct – Dec 2026</div>
 
     <!-- HERO ROW -->
     <div class="hero-row">
 
-      <!-- 2. CHANGE MAIN PHOTO HERE -->
       <div class="hero-photo">
-        <img src="images/khuliso mudau1.webp" alt="Khuliso Mudau">
+        <img src="images/j4.webp" alt="Benjamin Pavard">
       </div>
 
-      <!-- 3. CHANGE PLAYER DETAILS HERE -->
       <div class="hero-info">
-        <span class="hero-number">This Month</span>
+        <span class="hero-number">Trending Now</span>
         <div>
-          <h2>Khuliso Mudau</h2>
-          <p class="hero-club">Right Back · Mamelodi Sundowns</p>
+          <h2>Benjamin Pavard</h2>
+          <p class="hero-club">Defender · Inter Milan · France</p>
         </div>
         <div class="hero-divider"></div>
         <div class="info-row">
           <span class="label">Style</span>
-          <span class="value">Prefers fitted formal wear; tailored to the body, clean and intentional.</span>
-        </div>
-        <div class="info-row">
-          <span class="label">The Trend</span>
-          <span class="value">Sharp suiting with a modern, body conscious cut. The occassional casual look.</span>
+          <span class="value">Runway ready. Tailored to perfection, in designer clothes with the accessories to match. He even gets called to walk the runway.</span>
         </div>
         <div class="info-row">
           <span class="label">Our Take</span>
-          <span class="value">Mudau understands that formal wear hits different when it actually fits. This is how you dress on and off the pitch.</span>
+          <span class="value">Off the pitch, Pavard can be mistaken for a model during fashion week.</span>
         </div>
         <div class="verdict">
           <span class="v-label">Verdict</span>
@@ -199,30 +210,49 @@
     <!-- BOTTOM 3 PHOTOS -->
     <div class="photo-row">
 
-      <!-- 4. FASHION LOOK 1 -->
       <div class="photo-card">
-        <div class="img-wrap"><img src="images/mudau.webp" alt="Khuliso Look 1"></div>
+        <div class="img-wrap"><img src="images/j2.webp" alt="Pavard Look 1"></div>
         <div class="photo-card-label">
           <span class="pc-title">Fashion Look 1</span>
           <span class="pc-tag">Off Pitch</span>
         </div>
       </div>
 
-      <!-- 5. FASHION LOOK 2 -->
       <div class="photo-card">
-        <div class="img-wrap"><img src="images/kk2.webp" alt="Khuliso Look 2"></div>
+        <div class="img-wrap"><img src="images/j3.webp" alt="Pavard Look 2"></div>
         <div class="photo-card-label">
           <span class="pc-title">Fashion Look 2</span>
           <span class="pc-tag">Off Pitch</span>
         </div>
       </div>
 
-      <!-- KIT PHOTO — always stays as the third card -->
       <div class="photo-card">
-        <div class="img-wrap"><img src="images/khuliso mudau.webp" alt="Khuliso Look 3"></div>
+        <div class="img-wrap"><img src="images/JOOO.webp" alt="Pavard Look 3"></div>
         <div class="photo-card-label">
           <span class="pc-title">Fashion Look 3</span>
           <span class="pc-tag">Off Pitch</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PREVIOUSLY TRENDING -->
+  <section class="archive-section">
+    <div class="archive-header">
+      <h2>Previously Trending</h2>
+      <span>Fit Check Archive</span>
+    </div>
+    <div class="archive-grid">
+
+      <!-- ARCHIVE CARD: add new ones ABOVE this one so the newest shows first -->
+      <div class="archive-card">
+        <div class="img-wrap"><img src="images/mudau.webp" alt="Khuliso Mudau" loading="lazy"></div>
+        <div class="archive-info">
+          <span class="archive-period">May 2026</span>
+          <span class="archive-name">Khuliso Mudau</span>
+          <span class="archive-club">Right Back · Mamelodi Sundowns</span>
+          <p class="archive-take">Fitted formal wear, tailored to the body, clean and intentional. Formal wear hits different when it actually fits.</p>
         </div>
       </div>
 
